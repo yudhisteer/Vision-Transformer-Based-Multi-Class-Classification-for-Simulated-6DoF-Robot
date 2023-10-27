@@ -9,7 +9,7 @@
 ## Plan of Action
 1. Generating Synthetic Dataset with Unity
 2. A Gentle Introduction to Attention
-3. Transformers in the World of Computer Vision
+3. Vision Transformer: How much is an image worth?
 4. Coding Transformers for Image Recognition: From Pixels to Predictions
 5. Simulating Palletizing with Transformers
 
