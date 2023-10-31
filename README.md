@@ -7,12 +7,41 @@
 ## Abstract
 
 ## Plan of Action
-1. Generating Synthetic Dataset with Unity
-2. A Gentle Introduction to Attention
-3. Vision Transformer: How much is an image worth?
-4. Coding Transformers for Image Recognition: From Pixels to Predictions
-5. Simulating Palletizing with Transformers
+1. [Generating Synthetic Dataset with Unity](#syntehtic)
+2. [A Gentle Introduction to Attention](#attention)
+3. [Vision Transformer: How much is an image worth?](#vision)
+4. [Coding Transformers for Image Recognition: From Pixels to Predictions](#transformer)
+5. [Simulating Palletizing with Transformers](#simulation)
 
+-----------------
+<a name="syntehtic"></a>
+## 1. Generating Synthetic Dataset with Unity
+
+-----------------
+<a name="attention"></a>
+## 2. A Gentle Introduction to Attention
+
+-----------------
+<a name="vision"></a>
+## 3. Vision Transformer: How much is an image worth?
+
+-----------------
+<a name="transformer"></a>
+## 4. Coding Transformers for Image Recognition: From Pixels to Predictions
+
+-----------------
+<a name="simulation"></a>
+## 5. Simulating Palletizing with Transformers
+
+
+
+
+
+
+
+
+
+----------
 ## Conclusion
 
 ## References
