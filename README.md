@@ -38,7 +38,7 @@ Note that the game scene represents the output image. We choose a resolution of 
 In order to generate large-scale synthetic datasets, we will use the [Perception Package](https://docs.unity3d.com/Packages/com.unity.perception@1.0/manual/index.html). More specifically, we will use the **Randomization tool** that allows us to integrate domain randomization principles into our simulation.
 
 ### 1.2 Camera Randomizer
-We start by creating a script that will randomly position our camera in the scene. We will randomly select a value for the distance and the elevation. We then calculate the camera's new position in a spherical coordinate system using the elevation and distance values. We update the camera's rotation and position based on the sampled values. We set the camera distance to be between ```5``` and ```8``` units whereas the rotation about the x-axis to be between ```15``` and ```95``` degrees. 
+We start by creating a script that will randomly position and rotate our camera in the scene. We will randomly select a value for the distance (about the y-axis) and the elevation (about the z-axis). We then calculate the camera's new position in a spherical coordinate system using the elevation and distance values. We update the camera's rotation and position based on the sampled values. We set the camera distance to be between ```5``` and ```8``` units whereas the rotation about the x-axis to be between ```15``` and ```95``` degrees. 
 
 ```c#
     // Sample a random elevation and distance.
