@@ -135,11 +135,10 @@ cardboard_plate_vase/ <- overall dataset folder
             ...
 ```
 
-Below is the output of the images for the two object classes: plate and vase. 
+Below is the output of the images for the plate object class:
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/2b72a160-35e9-435a-a67a-59dccd91e7da" width="49%"/>
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/7ce21473-5ed3-40bd-8407-6761ad2c82b2" width="49%"/>
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/7ce21473-5ed3-40bd-8407-6761ad2c82b2" />
 </p>
 
 -----------------
