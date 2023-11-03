@@ -21,9 +21,9 @@
 As the main goal of the project is an image classification task, we have chosen three objects that have distinct 3D structures and features. The 3D models are a [cardboard box](https://sketchfab.com/3d-models/small-cardboard-box-closed-9f0345c78b7b4761b9cdec5393474bd1), a [plate](https://sketchfab.com/3d-models/lunch-plate-school-project-eef24ebe601c4e2f99da3108ddc3b09b), and a [vase](https://sketchfab.com/3d-models/ancient-vase-dce37778ec964299bba5aeca736bf70e) and they were downloaded from [Sketchfab](https://sketchfab.com/).
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/2205306a-c5cb-4178-897f-35f0625456b4" width="33%" />
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/c730440f-ce4b-4079-9ea7-cb9b2b2bfc2f" width="33%" />
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/0a39f30b-056d-4589-9fd3-b4741f6d15b5" width="33%" />
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/2205306a-c5cb-4178-897f-35f0625456b4" width="30%" />
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/c730440f-ce4b-4079-9ea7-cb9b2b2bfc2f" width="30%" />
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/0a39f30b-056d-4589-9fd3-b4741f6d15b5" width="30%" />
 </p>
 
 After downloading from Sketchfab, we import them on **Unity (2022.3.9.f1 version)**. We create a scene with a **camera**, a **light**, and a **plane**. We place our 3D object on the plane at ```(0,0,0)``` position and place the camera above the 3D object. We ensure in the game scene the object is not too far or too close to the camera. We also tilt the camera slightly, around 70 degrees, so that we can have a clear 3D view of the object. Below is an example of the setup:
@@ -135,7 +135,7 @@ cardboard_plate_vase/ <- overall dataset folder
             ...
 ```
 
-Below is the output of the images for the three object classes: plate and vase. 
+Below is the output of the images for the two object classes: plate and vase. 
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/2b72a160-35e9-435a-a67a-59dccd91e7da" width="49%"/>
