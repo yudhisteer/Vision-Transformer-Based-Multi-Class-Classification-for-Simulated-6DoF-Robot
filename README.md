@@ -33,6 +33,7 @@ Note that the game scene represents the output image. We choose a resolution of 
 In order to generate large-scale synthetic datasets, we will use the [Perception Package](https://docs.unity3d.com/Packages/com.unity.perception@1.0/manual/index.html). More specifically, we will use the **Randomization tool** that allows us to integrate domain randomization principles into our simulation.
 
 ### 1.2 Camera Randomizer
+We start by creating a script that will randomly position our camera in the scene. We will randomly select a value for the distance and the elevation. We then calculate the camera's new position in a spherical coordinate system using the elevation and distance values. We update the camera's rotation and position based on the sampled values.
 
 ```c#
     // Sample a random elevation and distance.
@@ -49,6 +50,7 @@ In order to generate large-scale synthetic datasets, we will use the [Perception
 ```
 
 ### 1.3 Plane Color Randomizer
+Next, we want our plane to change color for each frame. We create a new script that will randomly sample an  RGB color value. We then apply that color to the plane. Note that our script will iterate for each frame depending on the number of iterations we set.
 
 ```c#
     // Sample a random RGB color value.
@@ -59,6 +61,7 @@ In order to generate large-scale synthetic datasets, we will use the [Perception
 ```
 
 ### 1.4 Light Randomizer
+Similarly, we want the lighting in our sample to be different for each frame. We randomly sample rotation values in the x,y, and z coordinates and apply them to the lighting object. 
 
 ```c#
     // Randomize the rotation of the light using the sampled values.
@@ -66,6 +69,7 @@ In order to generate large-scale synthetic datasets, we will use the [Perception
 ```
 
 ### 1.5 Object Placement Randomizer
+Furthermore, we do not want our object to be fixed in the center of the plane. We want the object to have a new **position**, **rotation**, and **scale** for each frame. We thus sample values for these three properties and apply them to the instantiated object.
 
 ```c#
     // Set the position, rotation, and scale of the instantiated object based on sampled values.
@@ -76,6 +80,7 @@ In order to generate large-scale synthetic datasets, we will use the [Perception
 
 
 ### 1.6 Object Color Randomizer
+Lastly, we want our object to be of different colors for each iteration. Similarly, to the plane color randomizer, we sample random RGB values and apply them to our object. We need to make sure we are using the color material associated with our prefab 3D object.
 
 ```c#
     // Sample a random RGB color value.
