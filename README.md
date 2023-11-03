@@ -173,7 +173,11 @@ In summary:
 
 ### 3.2 The Architecture
 
-### 3.3 
+![1_Fa65_7TmyNs4xLaW_fhRbA](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/51e48470-3a5a-4d2f-8b4c-91c53f1a607a)
+
+
+
+
 
 -----------------
 <a name="transformer"></a>
