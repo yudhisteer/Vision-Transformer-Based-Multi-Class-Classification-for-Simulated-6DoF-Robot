@@ -17,7 +17,7 @@
 <a name="syntehtic"></a>
 ## 1. Generating Synthetic Dataset with Unity
 
-### 1.1 Objeect Classes
+### 1.1 Object Classes
 
 ![Untitled video - Made with Clipchamp](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/2205306a-c5cb-4178-897f-35f0625456b4)
 ![Untitled video - Made with Clipchamp (1)](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/c730440f-ce4b-4079-9ea7-cb9b2b2bfc2f)
@@ -25,13 +25,57 @@
 
 ### 1.2 Camera Randomizer
 
+```c#
+    // Sample a random elevation and distance.
+    float elevation = cameraRotateX.Sample();
+    float distance = cameraDistance.Sample();
+
+    // Calculate the camera's new position in a spherical coordinate system.
+    float z = -distance * Mathf.Cos(elevation * Mathf.PI / 180);
+    float y = distance * Mathf.Sin(elevation * Mathf.PI / 180);
+
+    // Update the camera's rotation and position based on the sampled values.
+    myCamera.transform.rotation = Quaternion.Euler(elevation, 0, 0);
+    myCamera.transform.position = new Vector3(0, y, z);
+```
+
 ### 1.3 Plane Color Randomizer
+
+```c#
+    // Sample a random RGB color value.
+    Color randomizedColor = colorRGB.Sample();
+
+    // Apply the randomized color to the selected material.
+    selectedMat.color = randomizedColor;
+```
 
 ### 1.4 Light Randomizer
 
+```c#
+    // Randomize the rotation of the light using the sampled values.
+    tagLight.transform.eulerAngles = new Vector3(lightRotateX.Sample(), lightRotateY.Sample(), lightRotateZ.Sample());
+```
+
 ### 1.5 Object Placement Randomizer
 
+```c#
+    // Set the position, rotation, and scale of the instantiated object based on sampled values.
+    currentInstance.transform.position = placementLocation.Sample();
+    currentInstance.transform.eulerAngles = placementRotation.Sample();
+    currentInstance.transform.localScale = Vector3.one * objScale.Sample();
+```
+
+
 ### 1.6 Object Color Randomizer
+
+```c#
+    // Sample a random RGB color value.
+    Color randomizedColor = colorRGB.Sample();
+
+    // Apply the randomized color to the selected material.
+    selectedMat.color = randomizedColor;
+```
+
 
 
 ### 1.7 Simulation
