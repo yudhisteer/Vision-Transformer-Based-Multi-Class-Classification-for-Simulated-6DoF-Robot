@@ -18,10 +18,19 @@
 ## 1. Generating Synthetic Dataset with Unity
 
 ### 1.1 Object Classes
+As the main goal of the project is an image classification task, we have chosen three objects that have distinct 3D structures and features. The 3D models are a [cardboard box](https://sketchfab.com/3d-models/small-cardboard-box-closed-9f0345c78b7b4761b9cdec5393474bd1), a [plate](https://sketchfab.com/3d-models/lunch-plate-school-project-eef24ebe601c4e2f99da3108ddc3b09b), and a [vase](https://sketchfab.com/3d-models/ancient-vase-dce37778ec964299bba5aeca736bf70e) and they were downloaded from [Sketchfab](https://sketchfab.com/).
 
 ![Untitled video - Made with Clipchamp](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/2205306a-c5cb-4178-897f-35f0625456b4)
 ![Untitled video - Made with Clipchamp (1)](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/c730440f-ce4b-4079-9ea7-cb9b2b2bfc2f)
 ![Untitled video - Made with Clipchamp (2)](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/0a39f30b-056d-4589-9fd3-b4741f6d15b5)
+
+After downloading from Sketchfab, we import them on **Unity (2022.3.9.f1 version)**. We create a scene with a **camera**, a **light**, and a **plane**. We place our 3D object on the plane at ```(0,0,0)``` position and place the camera above the 3D object. We ensure in the game scene the object is not too far or too close to the camera. We also tilt the camera slightly, around 70 degrees, so that we can have a clear 3D view of the object. Below is an example of the setup:
+
+<img width="889" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/90051c79-13f2-4ffc-8fb3-4dc071bbcf3b">
+
+Note that the game scene represents the output image. We choose a resolution of ```400x400```. What we have demonstrated is how we can generate a synthetic image from 3D models using Unity. However, it's worth noting that we have only created a single image with a fixed object size and color, a uniform plane color, a specific camera position, and a singular lighting configuration. To build a robust classification model, we must acquire more data. Unfortunately, manually altering these parameters for each instance is a time-consuming and labor-intensive task. We must automate this process.
+
+
 
 ### 1.2 Camera Randomizer
 
