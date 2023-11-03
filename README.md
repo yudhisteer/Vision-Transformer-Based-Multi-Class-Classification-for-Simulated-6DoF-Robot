@@ -139,8 +139,8 @@ Below is the output of the images for the three object classes: cardboard box, p
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/d929d63a-8e0a-4042-8330-9f61394c7eb8" width="33%" />
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/2b72a160-35e9-435a-a67a-59dccd91e7da" width="33%" height="173px"/>
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/7ce21473-5ed3-40bd-8407-6761ad2c82b2" width="33%" height="173px"/>
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/2b72a160-35e9-435a-a67a-59dccd91e7da" width="33%"/>
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/7ce21473-5ed3-40bd-8407-6761ad2c82b2" width="33%"/>
 </p>
 
 -----------------
