@@ -148,6 +148,32 @@ Below is the output of the images for the plate object class:
 -----------------
 <a name="vision"></a>
 ## 3. Vision Transformer: How much is an image worth?
+Most of the explanation found below comes from the Vision Transformer paper itself: [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
+](https://arxiv.org/abs/2010.11929)
+
+### 3.1 Overview
+Before we dive into Transformer, let's do a quick overview of how CNN works first. 
+
+1. A Convolutional Neural Network (CNN) uses **kernels** to gather **local** information in each layer.
+2. This information is subsequently passed to the next layer, which further aggregates local data with an enlarged **receptive field**.
+3. The latter occurs because the final layer considers information that has already been **aggregated** by the initial layer.
+4. Initially, CNNs focus on local areas to capture **simple patterns** such as **edges**, and as they progress through the layers, their receptive fields become more **global**. This enables them to capture more complex patterns and semantics.
+
+The author of the ViT paper claims that they did not rely on attention in conjunction with CNN but a solely Transformer architecture was used directly to a sequence of patches of images that outperformed SOTA image classification models. Self-attention-based architectures - Transformers - have been the SOTA method for many NLP tasks. However, CNN remained dominant in computer vision. In order to apply, the Transformer network to a computer vision task, they had to transform their input data (images) the same way the input (tokens) was for a Transformer network in NLP. They split the image into patches of ```16x16``` pixels. These patches are then flattened by a linear transformation matrix to become vectors. The vector of each patch gets a positional embedding and a Transformer is used to predict the class of the image. 
+
+However, the ViT model underperformed when trained on mid-size datasets because of a lack of "**inductive bias**" (I later explain this term). But when trained on **larger datasets** (```14M-300M```) images, they outperformed SOTA image recognition models and concluded that "_large  scale training trumps inductive bias_". 
+
+In summary:
+
+- The Transformer requires **abundant data** because it has the freedom to look **everywhere** at the image from the start. That is, it is unfocused at the start and needs a huge amount of data to learn **what** and **where** to focus to make the right predictions.
+- The Transformer can find **novel** ways to look at the data because it isn't guided on how to do so.
+- On the other hand, CNN is focused in the beginning by the convolutions towards a **local view**. The given focus patterns can be a limitation but we spare a lot of training data because we do not have to teach the model how to focus but only **where** to focus. 
+
+
+
+### 3.2 The Architecture
+
+### 3.3 
 
 -----------------
 <a name="transformer"></a>
@@ -174,4 +200,4 @@ Below is the output of the images for the plate object class:
 3. https://www.youtube.com/watch?v=j3VNqtJUoz0&ab_channel=DeepFindr
 4. https://www.youtube.com/watch?v=DVoHvmww2lQ&list=PLpZBeKTZRGPMddKHcsJAOIghV8MwzwQV6&index=1&ab_channel=AICoffeeBreakwithLetitia
 5. https://www.youtube.com/watch?v=j6kuz_NqkG0&ab_channel=AleksaGordi%C4%87-TheAIEpiphany
-6. 
+6. https://www.youtube.com/watch?v=DVoHvmww2lQ&list=PLpZBeKTZRGPMddKHcsJAOIghV8MwzwQV6&ab_channel=AICoffeeBreakwithLetitia
