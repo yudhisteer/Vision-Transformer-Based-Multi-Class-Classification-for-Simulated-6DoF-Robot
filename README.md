@@ -175,15 +175,45 @@ In summary:
 
 
 
-![1_Fa65_7TmyNs4xLaW_fhRbA](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/51e48470-3a5a-4d2f-8b4c-91c53f1a607a)
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/51e48470-3a5a-4d2f-8b4c-91c53f1a607a" />
+</p>
 
-#### 3.2.1 Equation 1
+### 3.3 Equation 1
+The author explains that the original Transformer for the NLP task takes a sequence of token embeddings as input. Hence, we need to transform our images into the same. The representation of our input is to split an image into fixed-size patches and then return each patch of the image into a **learnable embedding**. Our original image is of size ```224 x 224 x 3 -> [Height, Width, Color Channel]```. We choose a patch size of ```16 x 16```, therefore the resulting number of patches is:
 
-#### 3.2.2 Equation 2
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/f5622088-ad7e-4fe3-8d7b-0fb9d208eed8" />
+</p>
 
-#### 3.2.3 Equation 3
+Hence, the output shape of a single 2D image flattened into patches will be of size: ```196 x 768 -> [N, (P^2 X C)]```. Note that ```196``` is the input sequence length for the Transformer. 
 
-#### 3.2.4 Equation 4
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/3d13cde2-d641-4d27-a2e7-aaf3d80c5a27" />
+</p>
+
+where
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/71ffefd2-a534-41a6-b165-99a5c36c786a" />
+</p>
+
+and
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/86bd48b5-aca0-4844-8f34-7ecfc8052ec3" />
+</p>
+
+Pseudocode:
+
+    x_input = [class_token, patch_1, patch_2, ..., patch_N] + [class_token_pos, patch_1_pos, patch_2_pos, ..., patch_N_pos]
+
+### 3.4 Equation 2
+
+### 3.5 Equation 3
+
+### 3.6 Equation 4
 
 
 
@@ -191,7 +221,17 @@ In summary:
 <a name="transformer"></a>
 ## 4. Coding Transformers for Image Recognition: From Pixels to Predictions
 
-#### 3.2.1 Equation 1
+### 4.1 Equation 1
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/4e5658d7-366b-48b8-a982-4859296d0333" />
+</p>
+
+
+
+
+
+
 
 -----------------
 <a name="simulation"></a>
