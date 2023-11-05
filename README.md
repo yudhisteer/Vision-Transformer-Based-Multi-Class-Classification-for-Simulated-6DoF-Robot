@@ -180,14 +180,7 @@ In summary:
 </p>
 
 ### 3.3 Equation 1
-The author explains that the original Transformer for the NLP task takes a sequence of token embeddings as input. Hence, we need to transform our images into the same. The representation of our input is to split an image into fixed-size patches and then return each patch of the image into a **learnable embedding**. Our original image is of size ```224 x 224 x 3 -> [Height, Width, Color Channel]```. We choose a patch size of ```16 x 16```, therefore the resulting number of patches is:
-
-<p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/f5622088-ad7e-4fe3-8d7b-0fb9d208eed8" />
-</p>
-
-Hence, the output shape of a single 2D image flattened into patches will be of size: ```196 x 768 -> [N, (P^2 X C)]```. Note that ```196``` is the input sequence length for the Transformer. 
-
+The author explains that the original Transformer for the NLP task takes a sequence of token embeddings as input. Hence, we need to transform our images into the same. 
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/3d13cde2-d641-4d27-a2e7-aaf3d80c5a27" />
@@ -205,9 +198,16 @@ and
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/86bd48b5-aca0-4844-8f34-7ecfc8052ec3" />
 </p>
 
-Pseudocode:
+The representation of our input is to split an image into fixed-size patches and then return each patch of the image into a **learnable embedding**. Our original image is of size ```224 x 224 x 3 -> [Height x Width x Color Channel]```. We choose a patch size of ```16 x 16```, therefore the resulting number of patches is:
 
-    x_input = [class_token, patch_1, patch_2, ..., patch_N] + [class_token_pos, patch_1_pos, patch_2_pos, ..., patch_N_pos]
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/f5622088-ad7e-4fe3-8d7b-0fb9d208eed8" />
+</p>
+
+Hence, the output shape of a single 2D image flattened into patches will be of size: ```196 x 768 -> [N x (P^2 ⋅ C)]```. Note that ```196``` is the input sequence length for the Transformer. 
+
+
+
 
 ### 3.4 Equation 2
 
@@ -227,6 +227,10 @@ Pseudocode:
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/4e5658d7-366b-48b8-a982-4859296d0333" />
 </p>
 
+
+**Pseudocode:**
+
+    x_input = [class_token, patch_1, patch_2, ..., patch_N] + [class_token_pos, patch_1_pos, patch_2_pos, ..., patch_N_pos]
 
 
 
