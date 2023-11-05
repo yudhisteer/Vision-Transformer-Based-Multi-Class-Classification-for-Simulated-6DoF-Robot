@@ -191,6 +191,8 @@ In summary:
 <a name="transformer"></a>
 ## 4. Coding Transformers for Image Recognition: From Pixels to Predictions
 
+#### 3.2.1 Equation 1
+
 -----------------
 <a name="simulation"></a>
 ## 5. Simulating Palletizing with Transformers
