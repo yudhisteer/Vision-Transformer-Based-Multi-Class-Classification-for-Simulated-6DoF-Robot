@@ -204,7 +204,7 @@ The representation of our input is to split an image into fixed-size patches and
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/f5622088-ad7e-4fe3-8d7b-0fb9d208eed8" />
 </p>
 
-Hence, the output shape of a single 2D image flattened into patches will be of size: ```196 x 768 -> [N x (P^2 ⋅ C)]```. Note that ```196``` is the input sequence length for the Transformer. 
+Hence, the output shape of a single 2D image flattened into patches will be of size: ```196 x 768 -> [N x (P^2 ⋅ C)]```. Note that ```196``` is the input sequence length for the transformer and ```768``` is the embedding dimension.
 
 
 
