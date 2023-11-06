@@ -209,7 +209,7 @@ Hence, the output shape of a single 2D image flattened into patches will be of s
 
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/49935643-8545-4a36-8b92-fa6a516add35" width="90%"/>
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/5409d127-37c2-4235-b7b0-eaaa44163337" width="90%"/>
 </p>
 
 
