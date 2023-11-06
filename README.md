@@ -198,6 +198,9 @@ and
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/86bd48b5-aca0-4844-8f34-7ecfc8052ec3" />
 </p>
 
+<img width="873" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/49935643-8545-4a36-8b92-fa6a516add35">
+
+
 The representation of our input is to split an image into fixed-size patches and then return each patch of the image into a **learnable embedding**. Our original image is of size ```224 x 224 x 3 -> [Height x Width x Color Channel]```. We choose a patch size of ```16 x 16```, therefore the resulting number of patches is:
 
 <p align="center">
