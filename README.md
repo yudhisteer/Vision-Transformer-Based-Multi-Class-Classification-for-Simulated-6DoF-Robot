@@ -298,7 +298,7 @@ Our patch embedding is still in ```2D``` and we need to transform it to ```1D```
 With this, we have turned our single ```2D``` image into a **1D learnable embedding vector** or ```Linear Projection of Flattned Patches```. We created a class that takes in an image, apply convolutional operation, flatten it, prepend a class token and add a positional embedding:
 
 ```python
-    patchify = PatchClassPositionEmbedding(in_channels=3, embedding_dim=768, patch_size=16, num_patches=196, batch_size=1)
+patchify = PatchClassPositionEmbedding(in_channels=3, embedding_dim=768, patch_size=16, num_patches=196, batch_size=1)
 ```
 
 
