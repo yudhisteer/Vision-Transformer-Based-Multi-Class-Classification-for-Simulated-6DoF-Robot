@@ -255,7 +255,7 @@ In the figure below, we used Matplotlib to loop through the different height and
 
 **2) Using feature maps**
 
-The author of the ViT paper proposed a **hybrid model** in which we can use the **feature maps** of a CNN. The patches can have a spatial dimension of ```1x1```, signifying that the input sequence is created by flattening the spatial dimensions of the feature map and then projecting it into the Transformer dimension.
+The author of the ViT paper proposed a **hybrid model** in which we can use the **feature maps** of a CNN. The patches can have a spatial dimension of ```1x1```, that is the input sequence is created by flattening the spatial dimensions of the feature map and then projecting it into the Transformer dimension.
 
 
 
