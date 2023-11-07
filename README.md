@@ -247,7 +247,7 @@ There are 2 ways to turn our image into patches:
 
 **1) Using raw image patches**
 
-In the figure below, we used Matplotlib to loop through the different height and width dimensions of a single image and plot individual patches. However, this method can be computationally expensive and time-consuming. It took ```16.780``` seconds to output the image below.
+In the figure below, we looped through the different height and width dimensions of a single image and plotted individual patches. However, this method can be computationally expensive and time-consuming. It took ```16.780``` seconds to output the image below.
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/48e040df-339d-42ec-b032-b6bf87a4cf1e" width="50%"/>
