@@ -308,7 +308,7 @@ Our extra learnable class embedding token should be of size ```(1 x 768)``` wher
 class_token = nn.Parameter(torch.ones(batch_size, 1, 768), requires_grad=True)
 ```
 
-We also need to **prepend** it to our **patch embedding**. We use ```torch.cat``` on the first dimension to do so. Our output is of size ```(197 x 768)```.
+We also need to **prepend** it to our **patch embedding**. We use ```torch.cat``` on the first dimension to do so. The patch embedding is of size ```(196, 768)``` and our output (with prepend class token) is of size ```(197 x 768)```.
 
 #### 4.1.3 Position Embedding
 
