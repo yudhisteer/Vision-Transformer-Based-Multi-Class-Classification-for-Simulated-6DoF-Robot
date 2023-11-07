@@ -295,7 +295,11 @@ Our patch embedding is still in ```2D``` and we need to transform it to ```1D```
 | ![Image 14](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/b37c230c-a773-49f9-8472-e1513ebc63df) |
 | ![Image 15](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/31c9ff7f-cc53-407a-bbcb-461fb6c49079) |
 
-With this, we have turned our single ```2D``` image into a **1D learnable embedding vector** or ```Linear Projection of Flattned Patches```.
+With this, we have turned our single ```2D``` image into a **1D learnable embedding vector** or ```Linear Projection of Flattned Patches```. We created a class that takes in an image, apply convolutional operation, flatten it, prepend a class token and add a positional embedding:
+
+```python
+    patchify = PatchClassPositionEmbedding(in_channels=3, embedding_dim=768, patch_size=16, num_patches=196, batch_size=1)
+```
 
 
 
