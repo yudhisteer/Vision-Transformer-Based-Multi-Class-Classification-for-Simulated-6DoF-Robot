@@ -179,6 +179,11 @@ In summary:
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/51e48470-3a5a-4d2f-8b4c-91c53f1a607a" />
 </p>
 
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/bedb311c-2dea-47ec-a5d5-a0485e436574" width="60%"/>
+</p>
+
+
 ### 3.3 Equation 1
 The author explains that the original Transformer for the NLP task takes a sequence of token embeddings as input. Hence, we need to transform our images into the same. 
 
