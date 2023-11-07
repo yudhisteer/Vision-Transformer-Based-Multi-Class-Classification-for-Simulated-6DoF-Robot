@@ -257,12 +257,18 @@ In the figure below, we looped through the different height and width dimensions
 
 The author of the ViT paper proposed a **hybrid model** in which we can use the **feature maps** of a CNN. The patches can have a spatial dimension of ```1x1```, that is the input sequence is created by flattening the spatial dimensions of the feature map and then projecting it into the Transformer dimension.
 
-
+```python
+nn.Conv2d(in_channels=3, out_channels=D, kernel_size=patch_size, stride=patch_size, padding=0)
+```
 
 | Input Image | Feature Maps 
 |---------|---------|
 | ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/cb387506-62a7-47cb-9471-ad571b75635e) | ![Image 3](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/b3504ddc-4843-4182-aca1-fd4bc7d0f2c3) |
 
+
+```python
+nn.Flatten(start_dim=2, end_dim=-1)
+```
 
 | Flattened Feature Maps |
 |-------|
