@@ -228,6 +228,10 @@ Hence, the output shape of a single 2D image flattened into patches will be of s
 
 ### 4.1 Equation 1
 
+We will start by coding equation 1 which is to first transform our input image into patches. 
+
+
+
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/4e5658d7-366b-48b8-a982-4859296d0333" />
 </p>
@@ -237,10 +241,25 @@ Hence, the output shape of a single 2D image flattened into patches will be of s
 
     x_input = [class_token, patch_1, patch_2, ..., patch_N] + [class_token_pos, patch_1_pos, patch_2_pos, ..., patch_N_pos]
 
+#### 4.1.1 Patching
+
+There are 2 ways to turn our image into patches:
+
+**1) Using raw image patches**
+
+In the figure below, we used Matplotlib to loop through the different height and width dimensions of a single image and plot individual patches. However, this method can be computationally expensive and time-consuming. It took ```16.780``` seconds to output the image below.
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/48e040df-339d-42ec-b032-b6bf87a4cf1e" width="50%"/>
+</p>
+
+**2) Using feature maps**
+
+The author of the ViT paper proposed a **hybrid model** in which we can use the **feature maps** of a CNN. The patches can have a spatial dimension of ```1x1```, signifying that the input sequence is created by flattening the spatial dimensions of the feature map and then projecting it into the Transformer dimension.
 
 
 
-
+### 4.2 Equation 2
 
 -----------------
 <a name="simulation"></a>
