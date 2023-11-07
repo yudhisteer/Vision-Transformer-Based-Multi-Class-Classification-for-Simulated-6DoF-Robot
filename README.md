@@ -295,21 +295,39 @@ Our patch embedding is still in ```2D``` and we need to transform it to ```1D```
 | ![Image 14](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/b37c230c-a773-49f9-8472-e1513ebc63df) |
 | ![Image 15](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/31c9ff7f-cc53-407a-bbcb-461fb6c49079) |
 
-With this, we have turned our single ```2D``` image into a **1D learnable embedding vector** or ```Linear Projection of Flattned Patches```. We created a class that takes in an image, apply convolutional operation, flatten it, prepend a class token and add a positional embedding:
-
-```python
-patchify = PatchClassPositionEmbedding(in_channels=3, embedding_dim=768, patch_size=16, num_patches=196, batch_size=1)
-```
+With this, we have turned our single ```2D``` image into a **1D learnable embedding vector** or ```Linear Projection of Flattned Patches```. 
 
 
 
 
 
 #### 4.1.2 Class Token
+Our extra learnable class embedding token should be of size ```(1 x 768)``` where ```768``` is the **embedding dimension**. We create a learnable embedding as shown below:
+
+```python
+class_token = nn.Parameter(torch.ones(batch_size, 1, 768), requires_grad=True)
+```
+
+We also need to **prepend** it to our **patch embedding**. We use ```torch.cat``` on the first dimension to do so. Our output is of size ```(197 x 768)```.
 
 #### 4.1.3 Position Embedding
 
-#### 4.1.4 Patch + Position Embedding
+Next, we create learnable 1D position embedding of size ```(197 x 768)``` using ```torch.rand``` specifying ```requires_grad=True``` to make it learnable. Note that we have ```197``` because we have to prepend the class token to the patch embedding.
+
+
+```python
+position_embedding = nn.Parameter(torch.ones(batch_size, num_patches+1, 768), requires_grad=True)
+```
+
+Next, we need to add our position embedding to the patch embedding with the prepend class token.
+
+#### 4.1.4 Patch + Class Token + Position Embedding
+
+We created a class that takes in an image, applies convolutional operation, flattens it, prepends a class token, and add a positional embedding:
+
+```python
+patchify = PatchClassPositionEmbedding(in_channels=3, embedding_dim=768, patch_size=16, num_patches=196, batch_size=1)
+```
 
 
 ### 4.2 Equation 2
