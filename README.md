@@ -258,8 +258,20 @@ In the figure below, we looped through the different height and width dimensions
 The author of the ViT paper proposed a **hybrid model** in which we can use the **feature maps** of a CNN. The patches can have a spatial dimension of ```1x1```, that is the input sequence is created by flattening the spatial dimensions of the feature map and then projecting it into the Transformer dimension.
 
 
+#### 4.1.2 Class Token
+
+#### 4.1.3 Position Embedding
+
+#### 4.1.4 Patch + Position Embedding
+
 
 ### 4.2 Equation 2
+
+
+### 4.3 Equation 3
+
+### 4.4 Equation 4
+
 
 -----------------
 <a name="simulation"></a>
