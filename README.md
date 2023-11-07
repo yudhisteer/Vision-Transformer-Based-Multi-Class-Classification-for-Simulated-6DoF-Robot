@@ -258,6 +258,31 @@ In the figure below, we looped through the different height and width dimensions
 The author of the ViT paper proposed a **hybrid model** in which we can use the **feature maps** of a CNN. The patches can have a spatial dimension of ```1x1```, that is the input sequence is created by flattening the spatial dimensions of the feature map and then projecting it into the Transformer dimension.
 
 
+
+| Input Image | Feature Maps 
+|---------|---------|
+| ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/cb387506-62a7-47cb-9471-ad571b75635e) | ![Image 3](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/b3504ddc-4843-4182-aca1-fd4bc7d0f2c3) |
+
+
+| Flattened Feature Maps |
+|-------|
+| ![Image 6](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/5833ab24-a355-4bdf-bd11-fbb2789b280c) |
+| ![Image 7](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/b36c8c73-dd1c-44bf-bddc-0e10dde76aef) |
+| ![Image 8](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/9e109b22-4eb5-4a0b-afcc-bf63c18d695f) |
+| ![Image 9](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/f9458337-3657-4a64-88b5-1c7e7a79315a) |
+| ![Image 10](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/4a20d1b4-6f4e-4418-9635-0bf9fda03bda) |
+| ![Image 11](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/4996e64e-a42b-4d46-a19c-8b0af92a4c7a) |
+| ![Image 12](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/ce9f2aa3-abfd-49ce-bcbe-a0736137e7db) |
+| ![Image 13](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/a76236e2-ce65-4a84-86f3-4b8acd22e302) |
+| ![Image 14](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/b37c230c-a773-49f9-8472-e1513ebc63df) |
+| ![Image 15](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/31c9ff7f-cc53-407a-bbcb-461fb6c49079) |
+
+
+
+
+
+
+
 #### 4.1.2 Class Token
 
 #### 4.1.3 Position Embedding
