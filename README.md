@@ -257,17 +257,24 @@ In the figure below, we looped through the different height and width dimensions
 
 The author of the ViT paper proposed a **hybrid model** in which we can use the **feature maps** of a CNN. The patches can have a spatial dimension of ```1x1```, that is the input sequence is created by flattening the spatial dimensions of the feature map and then projecting it into the Transformer dimension.
 
+We can use the convolutional operation with ```nn.Conv2d``` where we set the **kernel size** and **stride** equal to the **patch size**. That is, the convolutional kernel will be of size ```(patch size x patch size)```. The output will be a **learnable embedding** also called ```Linear Projection``` in the ViT paper. Recall our input is of size ```(224, 224, 3)``` and we want our output to be ```(196, 768)``` where ```768 = D = embedding dimension``` as in the table shown before. This means that **each** image will be embedded into a learnable vector of size ```768```.
+
 ```python
-nn.Conv2d(in_channels=3, out_channels=D, kernel_size=patch_size, stride=patch_size, padding=0)
+    nn.Conv2d(in_channels=3, out_channels=D, kernel_size=patch_size, stride=patch_size, padding=0)
 ```
+
+Our output after the convolutional operation is of size ```(768, 14, 14) -> [embedding_dim, feature_map_height, feature_map_width]``` and below is an example of an input image and the first 10 **feature maps or activation maps**. These feature maps all represent our original image and they are the **learnable embedding** of our image.
 
 | Input Image | Feature Maps 
 |---------|---------|
 | ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/cb387506-62a7-47cb-9471-ad571b75635e) | ![Image 3](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/b3504ddc-4843-4182-aca1-fd4bc7d0f2c3) |
 
+Our patch embedding is still in ```2D``` and we need to transform it to ```1D``` similar to the token representation in NLP before projecting it in the Transformer model. Therefore, we need to transform our feature map from ```(768, 14, 14)``` to be ```(768, 196)```
+ and then ```permute``` it to become ```(196, 768)```. We need to flatten the spatial dimensions of the feature map. Below is the representation of the first 10 feature maps flattened.
+
 
 ```python
-nn.Flatten(start_dim=2, end_dim=-1)
+    nn.Flatten(start_dim=2, end_dim=-1)
 ```
 
 | Flattened Feature Maps |
@@ -283,7 +290,7 @@ nn.Flatten(start_dim=2, end_dim=-1)
 | ![Image 14](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/b37c230c-a773-49f9-8472-e1513ebc63df) |
 | ![Image 15](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/31c9ff7f-cc53-407a-bbcb-461fb6c49079) |
 
-
+With this, we have turned our single ```2D``` image into a **1D learnable embedding vector** or ```Linear Projection of Flattned Patches```.
 
 
 
