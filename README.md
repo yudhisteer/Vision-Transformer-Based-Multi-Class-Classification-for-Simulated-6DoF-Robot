@@ -224,15 +224,29 @@ Hence, the output shape of a single 2D image flattened into patches will be of s
 
 Next, we need to create a **learnable class token** with one value for each of the embedding dimensions and then prepend it to the original sequence of patch embeddings. Our class token will be of size ```1 x 768```. Note that one of the authors of the paper, [Lucas Beyer](https://github.com/google-research/vision_transformer/issues/61#issuecomment-802233921),  stated that the ```"'extra class embedding' is not really important. However, we wanted the model to be "exactly Transformer, but on image patches", so we kept this design from Transformer, where a token is always used."```
 
-Our flattened patches with the prepend class encoding will be of size ```197 x 768```. Next, we need to add a learnable ```1D``` positional embeddings which will capture **positional information**. Now, why is this important? Since we are splitting our ```2D``` image into ```1D``` patches, we still want to retain the **order** of the patches. This will help us understand which patch relates to which patch. In order to add the positional embedding to our existing embedded patches with a prepend class token, the size of the positional embedding should also be ```197 x 768```.
+Our flattened patches with the prepend class encoding will be of size ```197 x 768```. Next, we need to add a learnable ```1D``` positional embedding to capture **positional information**. Now, why is this important? Since we are splitting our ```2D``` image into ```1D``` patches, we still want to retain the **order** of the patches. This will help us understand which patch relates to which patch. In order to add the positional embedding to our existing embedded patches with a prepend class token, the size of the positional embedding should also be ```197 x 768```.
 
 
 
 ### 3.4 Equation 2
+Equation 2 involves coding the first two blocks in the Transformer Encoder: **Layer Normalization (LN)** and the **Multi-Head Self Attention (MSA)** layer. 
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/3c3638f5-be8a-4360-9f10-6b31d38baba6" width="20%"/>
 </p>
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/4cae8e1e-8c62-49e8-b17a-01e4728de0d3" width="25%"/>
+</p>
+
+
+- Linear Normalization (LN) helps stabilize the training process and improve generalization performance by normalizing the activations of each layer in the model independently. It uses the mean and standard deviation of the activations for each layer and then transforms them into a **normal distribution**. In summary, LN prevents **exploding** or **vanishing gradients**, which can make it difficult to train deep neural networks.
+
+- Multi-Head Self Attention (MSA) provides a mechanism for patches to access **contextual information** from all other patches, enabling modeling of **long-range dependencies** across the image that would otherwise be lost when split into patches. Without MSA, the model would have no knowledge of spatial relationships. MSA computes **attention weights** for each pair of feature maps. These attention weights represent the importance of each feature map to the other, and they are used to compute a weighted sum of the feature maps.
+
+
+
+
 
 ### 3.5 Equation 3
 
@@ -246,7 +260,7 @@ Our flattened patches with the prepend class encoding will be of size ```197 x 7
 
 ### 4.1 Equation 1
 
-We will start by coding equation 1 which is to first transform our input image into patches. 
+We will start by coding equation 1 which is first to transform our input image into patches. 
 
 
 
@@ -342,8 +356,35 @@ We created a class that takes in an image, applies convolutional operation, flat
 patchify = PatchClassPositionEmbedding(in_channels=3, embedding_dim=768, patch_size=16, num_patches=196, batch_size=1)
 ```
 
-
 ### 4.2 Equation 2
+The next phase will be to implement the **Layer Normalization (LN)** and the **Multi-Head Self Attention (MSA)** layer. As explained above, the LN allows neural networks to optimize over data samples with similar distributions (similar mean and standard deviations) more easily than those with varying distributions and the MSA identifies the relation between the image patches to create a learned representation of an image.
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/8f3f1e95-1add-405b-b104-c009cc68993e" width="25%"/>
+</p>
+
+We will use the PyTorch implementation of the MSA and Layer Norm to code the first 2 blocks in the Transformer Encoder.
+
+```python
+    def forward(self, x):
+        x_layer_norm = self.layer_norm(x)
+        attn_output, attn_output_weights = self.multihead_attn(query=x_layer_norm, 
+                                                               key=x_layer_norm, 
+                                                               value=x_layer_norm,
+                                                               need_weights=False)
+
+        return attn_output
+```
+
+
+
+
+
+
+
+
+
+
 
 
 ### 4.3 Equation 3
@@ -373,3 +414,8 @@ patchify = PatchClassPositionEmbedding(in_channels=3, embedding_dim=768, patch_s
 4. https://www.youtube.com/watch?v=DVoHvmww2lQ&list=PLpZBeKTZRGPMddKHcsJAOIghV8MwzwQV6&index=1&ab_channel=AICoffeeBreakwithLetitia
 5. https://www.youtube.com/watch?v=j6kuz_NqkG0&ab_channel=AleksaGordi%C4%87-TheAIEpiphany
 6. https://www.youtube.com/watch?v=DVoHvmww2lQ&list=PLpZBeKTZRGPMddKHcsJAOIghV8MwzwQV6&ab_channel=AICoffeeBreakwithLetitia
+7. https://github.com/mashaan14/VisionTransformer-MNIST/blob/main/VisionTransformer_MNIST.ipynb
+8. https://towardsdatascience.com/a-comprehensive-guide-to-swin-transformer-64965f89d14c
+9. https://www.youtube.com/watch?v=YAgjfMR9R_M&ab_channel=MichiganOnline
+10. https://jalammar.github.io/illustrated-transformer/
+11. https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
