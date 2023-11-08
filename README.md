@@ -1,4 +1,4 @@
-# Vision Transformer-Based Multi-Class Classification in Simulated 6DoF Robot Environment
+# Vision Transformer-Based Multi-Class Classification for Simulated 6DoF Robot
 
 ## Problem Statement
 
