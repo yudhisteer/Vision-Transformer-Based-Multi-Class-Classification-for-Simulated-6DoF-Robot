@@ -363,7 +363,13 @@ The next phase will be to implement the **Layer Normalization (LN)** and the **M
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/8f3f1e95-1add-405b-b104-c009cc68993e" width="25%"/>
 </p>
 
-We will use the PyTorch implementation of the MSA and Layer Norm to code the first 2 blocks in the Transformer Encoder.
+**Pseudocode:**
+
+```python
+x_output_MSA_block = MSA_layer(LN_layer(x_input)) + x_input
+```
+
+Note that adding the ```x_input``` after the MSA and LN is a **residual connection**. We will use the PyTorch implementation of the MSA and Layer Norm to code the first 2 blocks in the Transformer Encoder.
 
 ```python
     def forward(self, x):
@@ -376,7 +382,7 @@ We will use the PyTorch implementation of the MSA and Layer Norm to code the fir
         return attn_output
 ```
 
-
+Note that we have a **residual connection** that adds the input back after the MSA block however, we will implement this later on.
 
 
 
