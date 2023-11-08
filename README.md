@@ -217,7 +217,9 @@ Hence, the output shape of a single 2D image flattened into patches will be of s
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/39fa623a-d35a-4272-9735-0f0f4a8734f0" width="90%"/>
 </p>
 
+Next, we need to create a **learnable class token** with one value for each of the embedding dimensions and then prepend it to the original sequence of patch embeddings. Our class token will be of size ```1 x 768```. Note that one of the authors of the paper, [Lucas Beyer](https://github.com/google-research/vision_transformer/issues/61#issuecomment-802233921),  stated that the ```"'extra class embedding' is not really important. However, we wanted the model to be "exactly Transformer, but on image patches", so we kept this design from Transformer, where a token is always used."```
 
+Our flattened patches with the prepend class encoding will be of size ```197 x 768```. Next, we need to add a learnable ```1D``` positional embeddings which will capture **positional information**. Now, why is this important? Since we are splitting our ```2D``` image into ```1D``` patches, we still want to retain the **order** of the patches. This will help us understand which patch relates to which patch. In order to add the positional embedding to our existing embedded patches with a prepend class token, the size of the positional embedding should also be ```197 x 768```.
 
 ### 3.4 Equation 2
 
