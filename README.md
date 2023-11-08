@@ -188,6 +188,11 @@ In summary:
 The author explains that the original Transformer for the NLP task takes a sequence of token embeddings as input. Hence, we need to transform our images into the same. 
 
 <p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/4c7c5917-41ff-4aef-b0eb-09d36834bc75" width="60%"/>
+</p>
+
+
+<p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-in-Simulated-6DoF-Robot-Environments/assets/59663734/3d13cde2-d641-4d27-a2e7-aaf3d80c5a27" />
 </p>
 
@@ -221,7 +226,13 @@ Next, we need to create a **learnable class token** with one value for each of t
 
 Our flattened patches with the prepend class encoding will be of size ```197 x 768```. Next, we need to add a learnable ```1D``` positional embeddings which will capture **positional information**. Now, why is this important? Since we are splitting our ```2D``` image into ```1D``` patches, we still want to retain the **order** of the patches. This will help us understand which patch relates to which patch. In order to add the positional embedding to our existing embedded patches with a prepend class token, the size of the positional embedding should also be ```197 x 768```.
 
+
+
 ### 3.4 Equation 2
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/3c3638f5-be8a-4360-9f10-6b31d38baba6" width="20%"/>
+</p>
 
 ### 3.5 Equation 3
 
