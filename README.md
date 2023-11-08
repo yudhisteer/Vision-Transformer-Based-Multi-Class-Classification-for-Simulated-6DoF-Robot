@@ -232,7 +232,7 @@ Our flattened patches with the prepend class encoding will be of size ```197 x 7
 Equation 2 involves coding the first two blocks in the Transformer Encoder: **Layer Normalization (LN)** and the **Multi-Head Self Attention (MSA)** layer. 
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/3c3638f5-be8a-4360-9f10-6b31d38baba6" width="20%"/>
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/a0f48f93-f24d-428f-8afc-bfd26459499e" width="50%"/>
 </p>
 
 <p align="center">
@@ -244,11 +244,25 @@ Equation 2 involves coding the first two blocks in the Transformer Encoder: **La
 
 - Multi-Head Self Attention (MSA) provides a mechanism for patches to access **contextual information** from all other patches. This enables modeling of **long-range dependencies** across the image that would otherwise be lost when split into patches. Without MSA, the model would have no knowledge of spatial relationships. MSA computes **attention weights** for each pair of feature maps. These attention weights represent the importance of each feature map to the other, and they are used to compute a weighted sum of the feature maps.
 
-
-
-
-
 ### 3.5 Equation 3
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/2e022faa-4c14-43f3-8c60-4f2fad0e2b0d" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/e9346ee1-4e4e-4705-be62-d377cf85c644" width="25%"/>
+</p>
+
+
+
+
+
+
+
+
+
+
 
 ### 3.6 Equation 4
 
@@ -394,6 +408,11 @@ Note that we have a **residual connection** that adds the input back after the M
 
 
 ### 4.3 Equation 3
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/e9346ee1-4e4e-4705-be62-d377cf85c644" width="25%"/>
+</p>
+
 
 ### 4.4 Equation 4
 
