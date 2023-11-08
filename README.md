@@ -242,7 +242,7 @@ Equation 2 involves coding the first two blocks in the Transformer Encoder: **La
 
 - Linear Normalization (LN) helps stabilize the training process and improve generalization performance by normalizing the activations of each layer in the model independently. It uses the mean and standard deviation of the activations for each layer and then transforms them into a **normal distribution**. In summary, LN prevents **exploding** or **vanishing gradients**, which can make it difficult to train deep neural networks.
 
-- Multi-Head Self Attention (MSA) provides a mechanism for patches to access **contextual information** from all other patches, enabling modeling of **long-range dependencies** across the image that would otherwise be lost when split into patches. Without MSA, the model would have no knowledge of spatial relationships. MSA computes **attention weights** for each pair of feature maps. These attention weights represent the importance of each feature map to the other, and they are used to compute a weighted sum of the feature maps.
+- Multi-Head Self Attention (MSA) provides a mechanism for patches to access **contextual information** from all other patches. This enables modeling of **long-range dependencies** across the image that would otherwise be lost when split into patches. Without MSA, the model would have no knowledge of spatial relationships. MSA computes **attention weights** for each pair of feature maps. These attention weights represent the importance of each feature map to the other, and they are used to compute a weighted sum of the feature maps.
 
 
 
