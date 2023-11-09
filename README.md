@@ -502,6 +502,15 @@ class VisualTransformerCustom(nn.Module):
 ### 4.6 Pretrained Vision Transformer
 <img width="806" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/d893da01-5fbf-4bf2-89af-d4ebd1bee1f4">
 
+
+
+
+<img width="325" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/550e1df5-a2d8-424f-bb4c-05c83f8d3667">
+<img width="337" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/2f9e1a97-d557-49b5-839a-8cc688c573d0">
+<img width="353" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/7555462e-b705-4bd9-9bcd-e740711a9ffc">
+
+
+
 -----------------
 <a name="simulation"></a>
 ## 5. Simulating Palletizing with Transformers
