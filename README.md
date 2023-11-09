@@ -437,6 +437,63 @@ Note that we call the Multi-Head Attention block and MLP block that we already c
         return x
 ```
 
+### 4.5 Equation 4
+
+```python
+classification_head = nn.Sequential(nn.LayerNorm(normalized_shape=embed_dim),
+                                    nn.Linear(in_features=embed_dim,
+                                    out_features=num_class))
+```
+
+### 4.5 Custom Vision Transformer
+
+```python
+class VisualTransformerCustom(nn.Module):
+    def __init__(self, 
+                 img_size:int=224,
+                 in_channels:int=3, 
+                 embed_dim:int=768,
+                 patch_size:int=16, 
+                 num_layers:int=12,
+                 num_heads: int = 12,
+                 hidden_dim:int = 3072, 
+                 dropout:float = 0.1,
+                 embed_dropout:int=0.1,
+                 num_class:int=3):
+        
+        super(VisualTransformerCustom, self).__init__()
+        
+        # Create an instance of patch embedding layer
+        self.patchify = PatchClassPositionEmbedding(in_channels=in_channels, 
+                                                    embed_dim=embed_dim, 
+                                                    patch_size=patch_size, 
+                                                    img_size=img_size,
+                                                    embed_dropout=embed_dropout)
+        
+        # Create a stack of Transformer blocks
+        self.transformer_blocks = nn.ModuleList([
+            TransformerEncoderBlock(embed_dim=embed_dim, num_heads=num_heads, hidden_dim=hidden_dim, dropout=dropout)
+            for _ in range(num_layers)
+        ])
+        
+        # Create MLP Head
+        self.classification_head = nn.Sequential(nn.LayerNorm(normalized_shape=embed_dim),
+                                            nn.Linear(in_features=embed_dim,
+                                            out_features=num_class))
+        
+    def forward(self, x):
+        
+        # Patchify
+        x = self.patchify(x)
+        
+        # Pass through transformer encoder blocks
+        x = self.transformer_blocks(x)
+        
+        # Get the last layer of x through classifier 
+        x = self.classification_head(x[:, 0])
+        
+        return x
+```
 -----------------
 <a name="simulation"></a>
 ## 5. Simulating Palletizing with Transformers
