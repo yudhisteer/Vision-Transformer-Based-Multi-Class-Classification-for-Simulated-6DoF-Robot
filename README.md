@@ -245,17 +245,19 @@ Equation 2 involves coding the first two blocks in the Transformer Encoder: **La
 - Multi-Head Self Attention (MSA) provides a mechanism for patches to access **contextual information** from all other patches. This enables modeling of **long-range dependencies** across the image that would otherwise be lost when split into patches. Without MSA, the model would have no knowledge of spatial relationships. MSA computes **attention weights** for each pair of feature maps. These attention weights represent the importance of each feature map to the other, and they are used to compute a weighted sum of the feature maps.
 
 ### 3.5 Equation 3
-Equation 3 involves coding the last two blocks in the Transformer Encoder: **Layer Normalization (LN)** and the **Multi-Layer Perceptron (MLP)** layer. The author states that the MLP contains **two linear layers** with a ```GELU (Gaussian Error Linear Units) non-linear activation function```. It also states that every linear layer in the MLP block has a **dropout layer** of value ```0.1```. 
+Equation 3 involves coding the last two blocks in the Transformer Encoder: **Layer Normalization (LN)** and the **Multi-Layer Perceptron (MLP)** layer. The author states that the MLP contains **two linear layers** with a ```GELU (Gaussian Error Linear Units) non-linear activation function```. It also states that every linear layer in the MLP block has a **dropout layer** of value ```0.1```.  The MLP block is responsible for capturing complex, non-linear relationships within the local context of each token.
 
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/0e77ab01-02f1-4390-bd1f-cc2ed0f898f6" width="70%"/>
 </p>
 
+
+The combination of linear transformations, non-linear activations, and dropout makes the model more flexible and expressive, helping it understand and handle different visual tasks effectively.
+
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/e9346ee1-4e4e-4705-be62-d377cf85c644" width="25%"/>
 </p>
-
 
 The hidden size of the MLP is ```3072``` and the input and output size of the MLP is equal to the embedding dimension ```768```. Above is a visual representation of the MLP and LN.
 
@@ -287,7 +289,7 @@ We will start by coding equation 1 which is first to transform our input image i
 
 **Pseudocode:**
 
-    x_input = [class_token, patch_1, patch_2, ..., patch_N] + [class_token_pos, patch_1_pos, patch_2_pos, ..., patch_N_pos]
+x_input = [class_token, patch_1, patch_2, ..., patch_N] + [class_token_pos, patch_1_pos, patch_2_pos, ..., patch_N_pos]
 
 #### 4.1.1 Patching
 
@@ -388,32 +390,27 @@ x_output_MSA_block = MSA_layer(LN_layer(x_input)) + x_input
 Note that adding the ```x_input``` after the MSA and LN is a **residual connection**. We will use the PyTorch implementation of the MSA and Layer Norm to code the first 2 blocks in the Transformer Encoder.
 
 ```python
-    def forward(self, x):
-        x_layer_norm = self.layer_norm(x)
-        attn_output, attn_output_weights = self.multihead_attn(query=x_layer_norm, 
-                                                               key=x_layer_norm, 
-                                                               value=x_layer_norm,
-                                                               need_weights=False)
-
-        return attn_output
+multihead_attn_block = MultiHeadAttentionBlock(embed_dim=768, num_heads=12)
 ```
 
 Note that we have a **residual connection** that adds the input back after the MSA block however, we will implement this later on.
 
-
-
-
-
-
-
-
-
-
 ### 4.3 Equation 3
+Equation 3 contains a layer norm and an MLP block which consists of a Fully Connected layer followed by a non-linear GELU activation function, a dropout for regularization, a second linear transformation using a Fully Connected layer, and finally another dropout. Similarly to equation 2. we will create a class to implement it but will skip the skip connection for now (no pun intended).
+
+Pseudocode:
+
+```python
+x_output_MLP_block = MLP_layer(LN_layer(x_output_MSA_block)) + x_output_MSA_block
+```
 
 <p align="center">
   <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/e9346ee1-4e4e-4705-be62-d377cf85c644" width="25%"/>
 </p>
+
+```python
+mlp_block = MLPBlock(embedding_dim=768, mlp_size=3072, dropout=0.1)
+```
 
 
 ### 4.4 Equation 4
