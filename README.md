@@ -245,8 +245,7 @@ Equation 2 involves coding the first two blocks in the Transformer Encoder: **La
 - Multi-Head Self Attention (MSA) provides a mechanism for patches to access **contextual information** from all other patches. This enables modeling of **long-range dependencies** across the image that would otherwise be lost when split into patches. Without MSA, the model would have no knowledge of spatial relationships. MSA computes **attention weights** for each pair of feature maps. These attention weights represent the importance of each feature map to the other, and they are used to compute a weighted sum of the feature maps.
 
 ### 3.5 Equation 3
-Equation 3 involves coding the last two blocks in the Transformer Encoder: **Layer Normalization (LN)** and the **Multi-Layer Perceptron (MLP)** layer. The author states that the MLP contains **two linear layers** with a ```GELU (Gaussian Error Linear Units) non-linear activation function```. It also states that every linear layer in the MLP block has a **dropout layer** of value ```0.1```. The hidden size of the MLP is ```3072``` and the input and output size 
- of the MLP is equal to the embedding dimension ```768```. Below is a visual representation of the MLP and LN:
+Equation 3 involves coding the last two blocks in the Transformer Encoder: **Layer Normalization (LN)** and the **Multi-Layer Perceptron (MLP)** layer. The author states that the MLP contains **two linear layers** with a ```GELU (Gaussian Error Linear Units) non-linear activation function```. It also states that every linear layer in the MLP block has a **dropout layer** of value ```0.1```. 
 
 
 <p align="center">
@@ -258,7 +257,7 @@ Equation 3 involves coding the last two blocks in the Transformer Encoder: **Lay
 </p>
 
 
-
+The hidden size of the MLP is ```3072``` and the input and output size of the MLP is equal to the embedding dimension ```768```. Above is a visual representation of the MLP and LN.
 
 
 
