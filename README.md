@@ -423,6 +423,20 @@ We have been skipping the skip connections tills now (again no pun intended). It
 x_input -> MSA_block -> [MSA_block_output + x_input] -> MLP_block -> [MLP_block_output + MSA_block_output + x_input
 ```
 
+Note that we call the Multi-Head Attention block and MLP block that we already coded above and add their respective residual connections.
+
+```python
+    def forward(self, x):
+        
+        # residual connection for MSA Block
+        x  = self.multihead_attn_block(x) + x
+        
+        # residual connection for MLP Block
+        x = self.mlp_block(x) + x
+        
+        return x
+```
+
 -----------------
 <a name="simulation"></a>
 ## 5. Simulating Palletizing with Transformers
