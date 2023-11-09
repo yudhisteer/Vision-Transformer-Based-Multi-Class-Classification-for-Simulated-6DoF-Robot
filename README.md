@@ -413,8 +413,15 @@ mlp_block = MLPBlock(embedding_dim=768, mlp_size=3072, dropout=0.1)
 ```
 
 
-### 4.4 Equation 4
+### 4.4 Transformer Encoder
+We have been skipping the skip connections tills now (again no pun intended). It is time to build the Transformer Encoder architecture using the MLP Block and Multi-Head Attention Block we designed. The input of the MSA Block (MSA + LN) is added back to the output of the MSA Block before it goes as input to the MLP Block (LN + MLP). Then again, the input of the MLP Block is added back to the output of the MLP Block. 
 
+
+**Pseudocode:**
+
+```python
+x_input -> MSA_block -> [MSA_block_output + x_input] -> MLP_block -> [MLP_block_output + MSA_block_output + x_input
+```
 
 -----------------
 <a name="simulation"></a>
