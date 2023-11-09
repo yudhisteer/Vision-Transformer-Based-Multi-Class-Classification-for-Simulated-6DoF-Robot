@@ -398,7 +398,7 @@ Note that we have a **residual connection** that adds the input back after the M
 ### 4.3 Equation 3
 Equation 3 contains a layer norm and an MLP block which consists of a Fully Connected layer followed by a non-linear GELU activation function, a dropout for regularization, a second linear transformation using a Fully Connected layer, and finally another dropout. Similarly to equation 2. we will create a class to implement it but will skip the skip connection for now (no pun intended).
 
-Pseudocode:
+**Pseudocode:**
 
 ```python
 x_output_MLP_block = MLP_layer(LN_layer(x_output_MSA_block)) + x_output_MSA_block
