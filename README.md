@@ -487,9 +487,10 @@ class VisualTransformerCustom(nn.Module):
         x = self.patchify(x)
         
         # Pass through transformer encoder blocks
-        x = self.transformer_blocks(x)
+        for transformer_block in self.transformer_blocks:
+            x = transformer_block(x)
         
-        # Get the last layer of x through classifier 
+        # put 0 index logit through classifier (get last layer of x)
         x = self.classification_head(x[:, 0])
         
         return x
