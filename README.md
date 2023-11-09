@@ -495,6 +495,9 @@ class VisualTransformerCustom(nn.Module):
         
         return x
 ```
+
+<img width="856" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/14f1429c-f0e4-47a2-a364-4fb437b743cf">
+
 -----------------
 <a name="simulation"></a>
 ## 5. Simulating Palletizing with Transformers
