@@ -446,6 +446,7 @@ classification_head = nn.Sequential(nn.LayerNorm(normalized_shape=embed_dim),
 ```
 
 ### 4.5 Custom Vision Transformer
+Finally, we need to assemble all our code clocks in our custom Vision Transformer model. As in the ViT paper, we will use ```12``` Transformer Encoder blocks. We used an Adam optimizer with ```0.003``` learning rate and a weight decay of ```0.3```. For the loss function, we use the Cross Entropy.
 
 ```python
 class VisualTransformerCustom(nn.Module):
@@ -496,11 +497,18 @@ class VisualTransformerCustom(nn.Module):
         return x
 ```
 
-<img width="856" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/14f1429c-f0e4-47a2-a364-4fb437b743cf">
+We trained our model for ```25``` epochs. Below are the accuracy and loss curves for the train and test dataset. We observe our test and train accuracy is around ```33%```, which it is no better if we randomly select a class for an object (since we have 3 classes). But why is our custom Vision Transformer trained from scratch failing?
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/14f1429c-f0e4-47a2-a364-4fb437b743cf" width="60%"/>
+</p>
 
 
 ### 4.6 Pretrained Vision Transformer
-<img width="806" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/d893da01-5fbf-4bf2-89af-d4ebd1bee1f4">
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/d893da01-5fbf-4bf2-89af-d4ebd1bee1f4" width="60%"/>
+</p>
 
 
 
