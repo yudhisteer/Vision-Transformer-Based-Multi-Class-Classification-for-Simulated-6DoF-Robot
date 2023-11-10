@@ -502,12 +502,20 @@ Epoch: 25 | train_loss: 1.0992 | train_acc: 0.3370 | test_loss: 1.0987 | test_ac
 ```
 
 
-We trained our model for ```25``` epochs. Below are the accuracy and loss curves for the train and test dataset. We observe our test and train accuracy is around ```33%```, which it is no better if we randomly select a class for an object (since we have 3 classes). But why is our custom Vision Transformer trained from scratch failing?
+We trained our model for ```25``` epochs. Below are the accuracy and loss curves for the train and test dataset. We observe our test and train accuracy is around ```33%```, which is no better if we randomly select a class for an object (since we have 3 classes). Note from the confusion matrix that we are only predicting cardboard. 
+
+But why is our custom Vision Transformer trained from scratch failing? 
+
+- First, this is because the ViT model uses far more amount of data. They used 3 different data each with millions of images: **1.3M (ImageNet-1k)**, **14M (ImageNet-21k)**, **303M (JFT)** compared to our total ```150``` images.
+- We trained our model for ```10``` epochs, however, the original ViT 7 epochs for the largest dataset and  90, 300 epochs for ImageNet.
+- They used a large batch size ```4096``` compared to our ```32```.
+- They also employed regularization techniques such as learning rate warmup, learning rate decay, and gradient clipping to prevent overfitting. We didn't have any of those.
 
 | Loss and Accuracy Curves | Confusion Matrix |
 |---------|---------|
 | ![Image 1](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/14f1429c-f0e4-47a2-a364-4fb437b743cf) | ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/663ef564-5220-45d6-80d4-4302e6933050) |
 
+Now that it makes sense why our model failed, the next step will be to use the transfer learning approach. We will use a pre-trained ViT model to train on our small dataset.
 ### 4.6 Pretrained Vision Transformer
 
 | Loss and Accuracy Curves | Confusion Matrix |
