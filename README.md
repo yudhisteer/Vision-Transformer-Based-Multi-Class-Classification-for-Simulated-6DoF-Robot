@@ -497,19 +497,22 @@ class VisualTransformerCustom(nn.Module):
         return x
 ```
 
+```python
+Epoch: 25 | train_loss: 1.0992 | train_acc: 0.3370 | test_loss: 1.0987 | test_acc: 0.3312
+```
+
+
 We trained our model for ```25``` epochs. Below are the accuracy and loss curves for the train and test dataset. We observe our test and train accuracy is around ```33%```, which it is no better if we randomly select a class for an object (since we have 3 classes). But why is our custom Vision Transformer trained from scratch failing?
 
-<p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/14f1429c-f0e4-47a2-a364-4fb437b743cf" width="60%"/>
-</p>
-
+| Loss and Accuracy Curves | Confusion Matrix |
+|---------|---------|
+| ![Image 1](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/14f1429c-f0e4-47a2-a364-4fb437b743cf) | ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/663ef564-5220-45d6-80d4-4302e6933050) |
 
 ### 4.6 Pretrained Vision Transformer
 
-<p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/d893da01-5fbf-4bf2-89af-d4ebd1bee1f4" width="60%"/>
-</p>
-
+| Loss and Accuracy Curves | Confusion Matrix |
+|---------|---------|
+| ![Image 1](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/d893da01-5fbf-4bf2-89af-d4ebd1bee1f4) | ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/56e1cff5-896e-4373-a042-beecbb263a7c) |
 
 
 
