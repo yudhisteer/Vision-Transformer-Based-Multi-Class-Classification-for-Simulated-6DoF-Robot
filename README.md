@@ -506,16 +506,16 @@ We trained our model for ```25``` epochs. Below are the accuracy and loss curves
 
 But why is our custom Vision Transformer trained from scratch failing? 
 
-- First, this is because the ViT model uses far more amount of data. They used 3 different data each with millions of images: **1.3M (ImageNet-1k)**, **14M (ImageNet-21k)**, **303M (JFT)** compared to our total ```150``` images.
-- We trained our model for ```10``` epochs, however, the original ViT 7 epochs for the largest dataset and  90, 300 epochs for ImageNet.
+- First, this is because the ViT model uses far more amount of data. They used three different datasets each with millions of images: **1.3M (ImageNet-1k)**, **14M (ImageNet-21k)**, **303M (JFT)** compared to our total ```150``` images.
+- We trained our model for ```10``` epochs, however, the original ViT ```7``` epochs for the largest dataset and  ```90, 300``` epochs for ImageNet.
 - They used a large batch size ```4096``` compared to our ```32```.
-- They also employed regularization techniques such as learning rate warmup, learning rate decay, and gradient clipping to prevent overfitting. We didn't have any of those.
+- They also employed **regularization** techniques such as **learning rate warmup**, **learning rate decay**, and **gradient clipping** to prevent overfitting. We didn't have any of those.
 
 | Loss and Accuracy Curves | Confusion Matrix |
 |---------|---------|
 | ![Image 1](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/14f1429c-f0e4-47a2-a364-4fb437b743cf) | ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/663ef564-5220-45d6-80d4-4302e6933050) |
 
-Now that it makes sense why our model failed, the next step will be to use the transfer learning approach. We will use a pre-trained ViT model to train on our small dataset.
+Now that it makes sense why our model failed, the next step will be to use the **transfer learning** approach. We will use a pre-trained ViT model to train on our small dataset.
 ### 4.6 Pretrained Vision Transformer
 
 | Loss and Accuracy Curves | Confusion Matrix |
