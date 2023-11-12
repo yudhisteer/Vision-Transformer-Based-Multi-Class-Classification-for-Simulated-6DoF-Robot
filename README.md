@@ -516,13 +516,23 @@ But why is our custom Vision Transformer trained from scratch failing?
 | ![Image 1](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/14f1429c-f0e4-47a2-a364-4fb437b743cf) | ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/663ef564-5220-45d6-80d4-4302e6933050) |
 
 Now that it makes sense why our model failed, the next step will be to use the **transfer learning** approach. We will use a pre-trained ViT model to train on our small dataset.
+
+
 ### 4.6 Pretrained Vision Transformer
+The next best solution will be to use a pre-trained ViT model from ```torchvision.models```. We first the pre-trained weights for **ViT-Base** trained on ```ImageNet-1k``` and then set up the ViT model instance via ```torchvision.models.vit_b_16```.  Note that we want to freeze the base parameters but change the classifier head with our own, that is, since we must classify 3 classes, the output shape must be 3 too.
+
+Similarly, as before, we trained our model using an **Adam optimizer** with a learning rate of ```0.001``` and a **cross-entropy** loss function. Below is the result of the loss and accuracy for ```25``` epochs:
+
+```python
+Epoch: 25 | train_loss: 0.0194 | train_acc: 1.0000 | test_loss: 0.0304 | test_acc: 1.0000
+```
+We got perfect training and test accuracy scores of ```100%``` for both the training and test datasets. This can be further confirmed with the confusion matrix below:
 
 | Loss and Accuracy Curves | Confusion Matrix |
 |---------|---------|
 | ![Image 1](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/d893da01-5fbf-4bf2-89af-d4ebd1bee1f4) | ![Image 2](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/56e1cff5-896e-4373-a042-beecbb263a7c) |
 
-
+We also performed inference of some test samples and below you can see that for the first image, it was tricky because both the plane and the plate are the exact same color. Nevertheless, our model would successfully classify our object with ```59%``` accuracy. For the cardboard and vase samples, it was easy for our model to classify them with over ```99%``` accuracy.
 
 ||||
 |---------|---------|---------|
