@@ -543,6 +543,7 @@ We also performed inference of some test samples and below you can see that for 
 ## 5. Simulating Palletizing with Transformers
 
 
+![ViT_workflow](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/2d194722-f0b8-4104-9826-2b227cbe27b3)
 
 
 
