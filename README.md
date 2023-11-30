@@ -142,10 +142,6 @@ Below is the output of the images for the plate object class:
 </p>
 
 -----------------
-<a name="attention"></a>
-## 2. A Gentle Introduction to Attention
-
------------------
 <a name="vision"></a>
 ## 2. Vision Transformer: How much is an image worth?
 Most of the explanation found below comes from the Vision Transformer paper itself: [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
