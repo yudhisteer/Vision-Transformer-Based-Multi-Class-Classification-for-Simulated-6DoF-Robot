@@ -249,7 +249,7 @@ Equation 3 involves coding the last two blocks in the Transformer Encoder: **Lay
 
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/0e77ab01-02f1-4390-bd1f-cc2ed0f898f6" width="70%"/>
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/b4a7957c-ff76-445f-9ff5-c3cc4bc7591b" width="60%"/>
 </p>
 
 
