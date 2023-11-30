@@ -2,6 +2,8 @@
 
 ## Problem Statement
 
+
+
 ## Dataset
 - A synthetic dataset was created using the ```Unity Perception``` package. The dataset of ```150``` images for each class - Box, Plate, and Vase - can be found on [Kaggle](https://www.kaggle.com/datasets/yudhisteerchintaram/synthetic-image-dataset-box-plate-and-vase/data).
 
