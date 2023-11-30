@@ -3,15 +3,15 @@
 ## Problem Statement
 
 ## Dataset
+- A synthetic dataset was created using the ```Unity Perception``` package. The dataset of ```150``` images for each class - Box, Plate, and Vase - can be found on [Kaggle](https://www.kaggle.com/datasets/yudhisteerchintaram/synthetic-image-dataset-box-plate-and-vase/data).
 
 ## Abstract
 
 ## Plan of Action
 1. [Generating Synthetic Dataset with Unity](#syntehtic)
-2. [A Gentle Introduction to Attention](#attention)
-3. [Vision Transformer: How much is an image worth?](#vision)
-4. [Coding Transformers for Image Recognition: From Pixels to Predictions](#transformer)
-5. [Simulating Palletizing with Transformers](#simulation)
+2. [Vision Transformer: How much is an image worth?](#vision)
+3. [Coding Transformers for Image Recognition: From Pixels to Predictions](#transformer)
+4. [Simulating Palletizing with Transformers](#simulation)
 
 -----------------
 <a name="syntehtic"></a>
@@ -147,11 +147,11 @@ Below is the output of the images for the plate object class:
 
 -----------------
 <a name="vision"></a>
-## 3. Vision Transformer: How much is an image worth?
+## 2. Vision Transformer: How much is an image worth?
 Most of the explanation found below comes from the Vision Transformer paper itself: [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
 ](https://arxiv.org/abs/2010.11929)
 
-### 3.1 Overview
+### 2.1 Overview
 Before we dive into Transformer, let's do a quick overview of how CNN works first. 
 
 1. A Convolutional Neural Network (CNN) uses **kernels** to gather **local** information in each layer.
@@ -171,7 +171,7 @@ In summary:
 
 
 
-### 3.2 The Architecture
+### 2.2 The Architecture
 
 
 
@@ -184,7 +184,7 @@ In summary:
 </p>
 
 
-### 3.3 Equation 1
+### 2.3 Equation 1
 The author explains that the original Transformer for the NLP task takes a sequence of token embeddings as input. Hence, we need to transform our images into the same. 
 
 <p align="center">
@@ -228,7 +228,7 @@ Our flattened patches with the prepend class encoding will be of size ```197 x 7
 
 
 
-### 3.4 Equation 2
+### 2.4 Equation 2
 Equation 2 involves coding the first two blocks in the Transformer Encoder: **Layer Normalization (LN)** and the **Multi-Head Self Attention (MSA)** layer. 
 
 <p align="center">
@@ -244,7 +244,7 @@ Equation 2 involves coding the first two blocks in the Transformer Encoder: **La
 
 - Multi-Head Self Attention (MSA) provides a mechanism for patches to access **contextual information** from all other patches. This enables modeling of **long-range dependencies** across the image that would otherwise be lost when split into patches. Without MSA, the model would have no knowledge of spatial relationships. MSA computes **attention weights** for each pair of feature maps. These attention weights represent the importance of each feature map to the other, and they are used to compute a weighted sum of the feature maps.
 
-### 3.5 Equation 3
+### 2.5 Equation 3
 Equation 3 involves coding the last two blocks in the Transformer Encoder: **Layer Normalization (LN)** and the **Multi-Layer Perceptron (MLP)** layer. The author states that the MLP contains **two linear layers** with a ```GELU (Gaussian Error Linear Units) non-linear activation function```. It also states that every linear layer in the MLP block has a **dropout layer** of value ```0.1```.  The MLP block is responsible for capturing complex, non-linear relationships within the local context of each token.
 
 
@@ -268,15 +268,15 @@ The hidden size of the MLP is ```3072``` and the input and output size of the ML
 
 
 
-### 3.6 Equation 4
+### 2.6 Equation 4
 
 
 
 -----------------
 <a name="transformer"></a>
-## 4. Coding Transformers for Image Recognition: From Pixels to Predictions
+## 3. Coding Transformers for Image Recognition: From Pixels to Predictions
 
-### 4.1 Equation 1
+### 3.1 Equation 1
 
 We will start by coding equation 1 which is first to transform our input image into patches. 
 
@@ -291,7 +291,7 @@ We will start by coding equation 1 which is first to transform our input image i
 
 x_input = [class_token, patch_1, patch_2, ..., patch_N] + [class_token_pos, patch_1_pos, patch_2_pos, ..., patch_N_pos]
 
-#### 4.1.1 Patching
+#### 3.1.1 Patching
 
 There are 2 ways to turn our image into patches:
 
@@ -346,7 +346,7 @@ With this, we have turned our single ```2D``` image into a **1D learnable embedd
 
 
 
-#### 4.1.2 Class Token
+#### 3.1.2 Class Token
 Our extra learnable class embedding token should be of size ```(1 x 768)``` where ```768``` is the **embedding dimension**. We create a learnable embedding as shown below:
 
 ```python
@@ -355,7 +355,7 @@ class_token = nn.Parameter(torch.ones(batch_size, 1, 768), requires_grad=True)
 
 We also need to **prepend** it to our **patch embedding**. We use ```torch.cat``` on the first dimension to do so. The patch embedding is of size ```(196, 768)``` and our output (with prepend class token) is of size ```(197 x 768)```.
 
-#### 4.1.3 Position Embedding
+#### 3.1.3 Position Embedding
 
 Next, we create learnable 1D position embedding of size ```(197 x 768)``` using ```torch.rand``` specifying ```requires_grad=True``` to make it learnable. Note that we have ```197``` because we have to prepend the class token to the patch embedding.
 
@@ -366,7 +366,7 @@ position_embedding = nn.Parameter(torch.ones(batch_size, num_patches+1, 768), re
 
 Next, we need to add our position embedding to the patch embedding with the prepend class token.
 
-#### 4.1.4 Patch + Class Token + Position Embedding
+#### 3.1.4 Patch + Class Token + Position Embedding
 
 We created a class that takes in an image, applies convolutional operation, flattens it, prepends a class token, and add a positional embedding:
 
@@ -374,7 +374,7 @@ We created a class that takes in an image, applies convolutional operation, flat
 patchify = PatchClassPositionEmbedding(in_channels=3, embedding_dim=768, patch_size=16, num_patches=196, batch_size=1)
 ```
 
-### 4.2 Equation 2
+### 3.2 Equation 2
 The next phase will be to implement the **Layer Normalization (LN)** and the **Multi-Head Self Attention (MSA)** layer. As explained above, the LN allows neural networks to optimize over data samples with similar distributions (similar mean and standard deviations) more easily than those with varying distributions and the MSA identifies the relation between the image patches to create a learned representation of an image.
 
 <p align="center">
@@ -395,7 +395,7 @@ multihead_attn_block = MultiHeadAttentionBlock(embed_dim=768, num_heads=12)
 
 Note that we have a **residual connection** that adds the input back after the MSA block however, we will implement this later on.
 
-### 4.3 Equation 3
+### 3.3 Equation 3
 Equation 3 contains a layer norm and an MLP block which consists of a Fully Connected layer followed by a non-linear GELU activation function, a dropout for regularization, a second linear transformation using a Fully Connected layer, and finally another dropout. Similarly to equation 2. we will create a class to implement it but will skip the skip connection for now (no pun intended).
 
 **Pseudocode:**
@@ -413,7 +413,7 @@ mlp_block = MLPBlock(embedding_dim=768, mlp_size=3072, dropout=0.1)
 ```
 
 
-### 4.4 Transformer Encoder
+### 3.4 Transformer Encoder
 We have been skipping the skip connections tills now (again no pun intended). It is time to build the Transformer Encoder architecture using the MLP Block and Multi-Head Attention Block we designed. The input of the MSA Block (MSA + LN) is added back to the output of the MSA Block before it goes as input to the MLP Block (LN + MLP). Then again, the input of the MLP Block is added back to the output of the MLP Block. 
 
 
@@ -437,7 +437,7 @@ Note that we call the Multi-Head Attention block and MLP block that we already c
         return x
 ```
 
-### 4.5 Equation 4
+### 3.5 Equation 4
 
 ```python
 classification_head = nn.Sequential(nn.LayerNorm(normalized_shape=embed_dim),
@@ -445,7 +445,7 @@ classification_head = nn.Sequential(nn.LayerNorm(normalized_shape=embed_dim),
                                     out_features=num_class))
 ```
 
-### 4.5 Custom Vision Transformer
+### 3.5 Custom Vision Transformer
 Finally, we need to assemble all our code clocks in our custom Vision Transformer model. As in the ViT paper, we will use ```12``` Transformer Encoder blocks. We used an Adam optimizer with ```0.003``` learning rate and a weight decay of ```0.3```. For the loss function, we use the Cross Entropy.
 
 ```python
@@ -518,7 +518,7 @@ But why is our custom Vision Transformer trained from scratch failing?
 Now that it makes sense why our model failed, the next step will be to use the **transfer learning** approach. We will use a pre-trained ViT model to train on our small dataset.
 
 
-### 4.6 Pretrained Vision Transformer
+### 3.6 Pretrained Vision Transformer
 The next best solution will be to use a pre-trained ViT model from ```torchvision.models```. We first the pre-trained weights for **ViT-Base** trained on ```ImageNet-1k``` and then set up the ViT model instance via ```torchvision.models.vit_b_16```.  Note that we want to freeze the base parameters but change the classifier head with our own, that is, since we must classify 3 classes, the output shape must be 3 too.
 
 Similarly, as before, we trained our model using an **Adam optimizer** with a learning rate of ```0.001``` and a **cross-entropy** loss function. Below is the result of the loss and accuracy for ```25``` epochs:
@@ -540,7 +540,7 @@ We also performed inference of some test samples and below you can see that for 
 
 -----------------
 <a name="simulation"></a>
-## 5. Simulating Palletizing with Transformers
+## 4. Simulating Palletizing with Transformers
 
 
 ![ViT_workflow](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/2d194722-f0b8-4104-9826-2b227cbe27b3)
