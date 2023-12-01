@@ -28,7 +28,7 @@ This process shows a cheaper, faster and more effective way in testing an end-to
 1. [Generating Synthetic Dataset with Unity](#synthetic)
 2. [Vision Transformer: How much is an image worth?](#vision)
 3. [Coding Transformers for Image Recognition: From Pixels to Predictions](#transformer)
-4. [Simulating Palletizing with Transformers](#simulation)
+4. [Digital Twin with Transformers](#simulation)
 
 -----------------
 <a name="synthetic"></a>
@@ -552,8 +552,12 @@ We also performed inference of some test samples and below you can see that for 
 | <img width="325" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/550e1df5-a2d8-424f-bb4c-05c83f8d3667"> | <img width="337" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/2f9e1a97-d557-49b5-839a-8cc688c573d0"> | <img width="353" alt="image" src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/7555462e-b705-4bd9-9bcd-e740711a9ffc"> |
 
 -----------------
+
+
+
+
 <a name="simulation"></a>
-## 4. Simulating Palletizing with Transformers
+## 4. Digital Twin with Transformers
 Now the most interesting part of the project is to be able to use our trained model in Unity. Running a Python script inside Unity can be a little problematic as we not only want to output the value of the AI model in the console but be able to use it and run a full simulation in the Game Scene. Below are some possible solutions: 
 
 1. The [Python Scripting package](https://docs.unity3d.com/Packages/com.unity.scripting.python@7.0/manual/index.html) allows us to run our inference code but it works only in the Unity Editor and is not available in runtime builds. 
@@ -583,6 +587,7 @@ Below we build a flowchart of the different processes described above:
 ![ViT_workflow](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/2d194722-f0b8-4104-9826-2b227cbe27b3)
 
 ### 4.2 Path Planning for Box
+The grip to grab boxes is similar to the [Boston Dynamics' Strech robot](https://bostondynamics.com/products/stretch/). We have suction cups at the bottom which means the robot will need to pick up a box from the top. Upon picking, the robot will need to rotate its ```J1``` joint counter-clockwise and put the box on its left conveyor belt. We first needed to plan the trajectory of this motion as shown below:
 
 https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/85d9798d-44ad-4d6c-bd49-d01b2bd149b2
 
