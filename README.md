@@ -16,6 +16,10 @@ So how can we test our project in a **simulated** **setting** that can efficient
 
 ## Abstract
 
+
+
+
+
 ## Plan of Action
 1. [Generating Synthetic Dataset with Unity](#syntehtic)
 2. [Vision Transformer: How much is an image worth?](#vision)
