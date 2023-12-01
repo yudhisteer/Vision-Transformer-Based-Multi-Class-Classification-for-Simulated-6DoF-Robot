@@ -554,7 +554,29 @@ We also performed inference of some test samples and below you can see that for 
 -----------------
 <a name="simulation"></a>
 ## 4. Simulating Palletizing with Transformers
+Now the most interesting part of the project is to be able to use our trained model in Unity. Running a Python script inside Unity can be a little problematic as we not only want to output the value of the AI model in the console but be able to use it and run a full simulation in the Game Scene. Below are some possible solutions: 
 
+1. The [Python Scripting package](https://docs.unity3d.com/Packages/com.unity.scripting.python@7.0/manual/index.html) allows us to run our inference code but it works only in the Unity Editor and is not available in runtime builds. 
+
+2. We can also use the [IronPython package](https://github.com/exodrifter/unity-python) package however, upon testing we got some dependency errors.
+
+3. Another solution would be to convert our inference Python script to C# and then, run it as usual in Unity. However, we needed PyTorchSharp API for this one and some API has changed since as explained [here](https://github.com/dotnet/TorchSharp/issues/740).
+
+4. So the one solution that worked was to output our AI model as an ONNX format and then run it using the [Barracuda](https://docs.unity3d.com/Packages/com.unity.barracuda@3.0/manual/GettingStarted.html) package.
+
+Now that we can run our AI model in Unity we need to set up the whole workflow for our simulation. Below are the tasks which we would want to perform:
+
+1. Randomly instantiate one of the objects.
+2. Move the object on the main conveyor belt.
+3. Stop at markers.
+4. A camera takes a picture of the object.
+5. The image goes to the AI model for inference.
+6. The AI model classifies the object.
+7. Based on the object, we instantiate the correct gripper for the robot.
+8. The robot grabs the object and places it on the correct conveyor belt.
+9. The loop goes on as such.
+
+Below we build a flowchart of the different processes described above:
 
 ![ViT_workflow](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/2d194722-f0b8-4104-9826-2b227cbe27b3)
 
@@ -585,3 +607,5 @@ https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classificatio
 9. https://www.youtube.com/watch?v=YAgjfMR9R_M&ab_channel=MichiganOnline
 10. https://jalammar.github.io/illustrated-transformer/
 11. https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+12. https://docs.unity3d.com/Packages/com.unity.barracuda@3.0/manual/GettingStarted.html
+13. https://github.com/cj-mills/unity-barracuda-inference-image-classification
