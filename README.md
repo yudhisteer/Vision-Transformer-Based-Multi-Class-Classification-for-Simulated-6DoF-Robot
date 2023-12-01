@@ -564,6 +564,8 @@ Now the most interesting part of the project is to be able to use our trained mo
 
 4. So the one solution that worked was to output our AI model as an ONNX format and then run it using the [Barracuda](https://docs.unity3d.com/Packages/com.unity.barracuda@3.0/manual/GettingStarted.html) package.
 
+### 4.1 Process Flow
+
 Now that we can run our AI model in Unity we need to set up the whole workflow for our simulation. Below are the tasks which we would want to perform:
 
 1. Randomly instantiate one of the objects.
@@ -580,15 +582,19 @@ Below we build a flowchart of the different processes described above:
 
 ![ViT_workflow](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/2d194722-f0b8-4104-9826-2b227cbe27b3)
 
-
-
+### 4.2 Path Planning for Box
 
 https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/85d9798d-44ad-4d6c-bd49-d01b2bd149b2
 
 
 
 
+### 4.3 Path Planning for Vase
 
+
+
+
+### 4.4 End-to-End Simulation
 
 
 
