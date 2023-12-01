@@ -6,7 +6,7 @@ We want to deploy a 6-DOF robotic arm in an industry that will be able to pick u
 
 For our problem statement, we may want the robot to recognize the object first. To do that, we will need to collect **images** of the objects. Firstly, if we want the robot to recognize objects, we need to gather images. How many images do we need, and who's responsible for taking them? Can we rely on internet images, or do we risk them not truly representing our objects?
 
-Furthermore, optimizing the robot's efficiency might involve **redesigning** the **workspace**. Is it necessary to physically place the robot in the real setting to test for maximum efficiency? And if so, do we have to halt other machines' work to make room for the robot? 
+Furthermore, optimizing the robot's efficiency might involve **redesigning** the **workspace**. Is it necessary to physically place the robot in a real setting to test for maximum efficiency? And if so, do we have to halt other machines' work to make room for the robot? 
 
 So how can we test our project in a **simulated** **setting** that can efficiently help us plan the **end-to-end tasks** the robot will need to perform? We will want to test our object classification in this simulation as well so that the images truly represent the real-world settings in which the robot operates.
 
@@ -16,18 +16,22 @@ So how can we test our project in a **simulated** **setting** that can efficient
 
 ## Abstract
 
+The project involves building an object classification AI model using Vision Transformer. Instead of taking pictures manually or scraping images off the internet, we generated synthetic images of the objects we want to classify. Using the Unity Perception package, we wrote a script that will position the object randomly on a plane of random color. We also position the camera inside Unity at a random position and orientation for each frame. We do the same for the lighting. Finally, we want the object to be of random color and random size so that we have a larger variability of data to build a model of minimum bias. We then built a Vision Transformer model from scratch and trained on 150 images for each object with a test size ratio of 20%. However, from the ViT paper we concluded that training a Transformer model from scratch on a small dataset achieves inferior results. We use a pre-trained ViT model from PyTorch and perform transfer learning approach to train on our custom synthetic dataset. We obtained a test and train accuracy of 100%. 
 
+We build a ```Digital Twin``` of the workspace we want to place our 6 DOF robot in Unity. We have three conveyor belts and at the end of each we have a container that will be used to collect the objects (box, plate or, vase). We place markers on the main conveyor belt to mark the position at which the object will stop in front of the robot. We create another camera object on top of the markers that will be used to capture images of the randomly instantiated object. This image will then go through our ViT model to classify the object. Based on the object, the robot will choose an appropriate gripper to grab the object and place it on their respective conveyor belt. This process will then repeat again.
+
+This process shows a cheaper, faster and more effective way in testing an end-to-end tasks with a 6DOF robot. With large synthetic datasets we cut time and manpower in collecting data for our AI model however, we need to make sure these data are representative of the data in real-world. By using the AI model in a Digital Twin, we get an idea what are the challenges we may face when implementing the robot in the industry and we can run as many tests as we want without hampering other processes.
 
 
 
 ## Plan of Action
-1. [Generating Synthetic Dataset with Unity](#syntehtic)
+1. [Generating Synthetic Dataset with Unity](#synthetic)
 2. [Vision Transformer: How much is an image worth?](#vision)
 3. [Coding Transformers for Image Recognition: From Pixels to Predictions](#transformer)
 4. [Simulating Palletizing with Transformers](#simulation)
 
 -----------------
-<a name="syntehtic"></a>
+<a name="synthetic"></a>
 ## 1. Generating Synthetic Dataset with Unity
 
 ### 1.1 Object Classes
@@ -556,7 +560,12 @@ We also performed inference of some test samples and below you can see that for 
 
 
 
-![Robot1 - Made with Clipchamp](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/80b82c11-9857-42d0-90a4-0ab52f41108e)
+
+https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/85d9798d-44ad-4d6c-bd49-d01b2bd149b2
+
+
+
+
 
 
 
