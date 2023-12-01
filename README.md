@@ -2,10 +2,17 @@
 
 ## Problem Statement
 
+We want to deploy a 6-DOF robotic arm in an industry that will be able to pick up objects with a certain grip and place the object in their designated box. Deploying a 6-DOF robotic arm in an industry requires a lot of **planning** and faces multiple challenges. For example, we may want to plan the **trajectory** of the movement of the robot beforehand to ensure we have the **space** required for the machine but also to ensure the **safety** of the **machine** and the **people** around it. 
+
+For our problem statement, we may want the robot to recognize the object first. To do that, we will need to collect **images** of the objects. Firstly, if we want the robot to recognize objects, we need to gather images. How many images do we need, and who's responsible for taking them? Can we rely on internet images, or do we risk them not truly representing our objects?
+
+Furthermore, optimizing the robot's efficiency might involve **redesigning** the **workspace**. Is it necessary to physically place the robot in the real setting to test for maximum efficiency? And if so, do we have to halt other machines' work to make room for the robot? 
+
+So how can we test our project in a **simulated** **setting** that can efficiently help us plan the **end-to-end tasks** the robot will need to perform? We will want to test our object classification in this simulation as well so that the images truly represent the real-world settings in which the robot operates.
 
 
 ## Dataset
-- A synthetic dataset was created using the ```Unity Perception``` package. The dataset of ```150``` images for each class - Box, Plate, and Vase - can be found on [Kaggle](https://www.kaggle.com/datasets/yudhisteerchintaram/synthetic-image-dataset-box-plate-and-vase/data).
+- A synthetic dataset was created using the ```Unity Perception``` package. The dataset of ```150``` images for each class - **Box**, **Plate**, and **Vase** - can be found on [Kaggle](https://www.kaggle.com/datasets/yudhisteerchintaram/synthetic-image-dataset-box-plate-and-vase/data).
 
 ## Abstract
 
