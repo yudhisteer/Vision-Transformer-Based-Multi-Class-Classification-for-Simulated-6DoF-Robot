@@ -556,6 +556,7 @@ We also performed inference of some test samples and below you can see that for 
 
 
 
+![Robot1 - Made with Clipchamp](https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/80b82c11-9857-42d0-90a4-0ab52f41108e)
 
 
 
