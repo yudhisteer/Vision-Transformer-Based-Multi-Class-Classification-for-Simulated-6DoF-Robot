@@ -569,7 +569,6 @@ Now the most interesting part of the project is to be able to use our trained mo
 4. So the one solution that worked was to output our AI model as an ONNX format and then run it using the [Barracuda](https://docs.unity3d.com/Packages/com.unity.barracuda@3.0/manual/GettingStarted.html) package.
 
 ### 4.1 Process Flow
-
 Now that we can run our AI model in Unity we need to set up the whole workflow for our simulation. Below are the tasks which we would want to perform:
 
 1. Randomly instantiate one of the objects.
@@ -589,18 +588,20 @@ Below we build a flowchart of the different processes described above:
 ### 4.2 Path Planning for Box
 The grip to grab boxes is similar to the [Boston Dynamics' Strech robot](https://bostondynamics.com/products/stretch/). We have suction cups at the bottom which means the robot will need to pick up a box from the top. Upon picking, the robot will need to rotate its ```J1``` joint counter-clockwise and put the box on its left conveyor belt. We first needed to plan the trajectory of this motion as shown below:
 
-https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/85d9798d-44ad-4d6c-bd49-d01b2bd149b2
-
-
+<div style="text-align: center;">
+  <video src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/85d9798d-44ad-4d6c-bd49-d01b2bd149b2" controls="controls" style="max-width: 730px;">
+  </video>
+</div>
 
 
 ### 4.3 Path Planning for Vase
+For the vase we cannot use the same grip with suction cups as above, instead, we will use a grip similar to a forklift fork. The fork will come to seize the vase at its neck, the robot will then rotate clockwise and put the vase on the right conveyor belt. Similarly as above, we plan the trajectory of the robot for this motion:
 
 
-
+Note that we do not have a third grip for the plate object as plate objects will continue on the main conveyor belt where they will fall in a wooden container.
 
 ### 4.4 End-to-End Simulation
-
+Finally, we put all the building blocks together and create the full end-to-end simulation for the palletetization of boxes, plates and, vases.
 
 
 ----------
