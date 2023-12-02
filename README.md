@@ -597,6 +597,10 @@ The grip to grab boxes is similar to the [Boston Dynamics' Strech robot](https:/
 ### 4.3 Path Planning for Vase
 For the vase we cannot use the same grip with suction cups as above, instead, we will use a grip similar to a forklift fork. The fork will come to seize the vase at its neck, the robot will then rotate clockwise and put the vase on the right conveyor belt. Similarly as above, we plan the trajectory of the robot for this motion:
 
+<div style="text-align: center;">
+  <video src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/0d5994b5-a0a7-4212-990c-d45d79c36ce3" controls="controls" style="max-width: 730px;">
+  </video>
+</div>
 
 Note that we do not have a third grip for the plate object as plate objects will continue on the main conveyor belt where they will fall in a wooden container.
 
