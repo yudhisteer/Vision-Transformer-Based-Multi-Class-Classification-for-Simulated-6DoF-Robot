@@ -16,16 +16,16 @@ So how can we test our project in a **simulated** **setting** that can efficient
 
 ## Abstract
 
-The project involves building an object classification AI model using Vision Transformer. Instead of taking pictures manually or scraping images off the internet, we generated synthetic images of the objects we wanted to classify. Using the Unity Perception package, we wrote a script that will position the object randomly on a plane of random color. We also position the camera inside Unity at a random position and orientation for each frame. We do the same for the lighting. Finally, we want the object to be of random color and random size so that we have a larger variability of data to build a model of minimum bias. We then built a Vision Transformer model from scratch and trained on 150 images for each object with a test size ratio of 20%. However, from the ViT paper, we concluded that training a Transformer model from scratch on a small dataset achieves inferior results. We use a pre-trained ViT model from PyTorch and perform a transfer learning approach to train on our custom synthetic dataset. We obtained a test and train accuracy of 100%. 
+The project involves building an **object classification AI model** using ```Vision Transformer```. Instead of taking pictures manually or scraping images off the internet, we generated **synthetic images** of the objects we wanted to classify. Using the Unity ```Perception package```, we wrote a script that will position the object randomly on a plane of random color. We also position the camera inside Unity at a random position and orientation for each frame. We do the same for the lighting. Finally, we want the object to be of random color and random size so that we have a **larger variability** of data to build a model of minimum bias. We then built a Vision Transformer model from scratch and trained on ```150``` images for each object with a test size ratio of ```20%```. However, from the ViT paper, we concluded that training a Transformer model from scratch on a small dataset achieves inferior results. We use a ```pre-trained ViT``` model from PyTorch and perform a transfer learning approach to train on our custom synthetic dataset. We obtained a test and train accuracy of ```100%```. 
 
 <div style="text-align: center;">
   <video src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/91659faa-6897-4dda-b48e-d06f3105f581" controls="controls" style="max-width: 730px;">
   </video>
 </div>
 
-We build a ```Digital Twin``` of the workspace we want to place our 6 DOF robot in Unity. We have three conveyor belts and at the end of each, we have a container that will be used to collect the objects (box, plate, or, vase). We place markers on the main conveyor belt to mark the position at which the object will stop in front of the robot. We create another camera object on top of the markers that will be used to capture images of the randomly instantiated object. This image will then go through our ViT model to classify the object. Based on the object, the robot will choose an appropriate gripper to grab the object and place it on its respective conveyor belt. This process will then repeat.
+We build a ```Digital Twin``` of the workspace where we want to place our ```6 DOF robot``` in Unity. We have three conveyor belts and at the end of each, we have a container that will be used to collect the objects (**box**, **plate**, or, **vase**). We place markers on the main conveyor belt to mark the position at which the object will stop in front of the robot. We create another camera object on top of the markers that will be used to capture images of the randomly instantiated object. This image will then go through our ```ViT``` model to classify the object. Based on the object, the robot will choose an appropriate **gripper** to grab the object and place it on its respective conveyor belt. This process will then repeat.
 
-This process shows a cheaper, faster, and more effective way of testing end-to-end tasks with a 6DOF robot. With large synthetic datasets, we cut time and manpower in collecting data for our AI model however, we need to make sure these data are representative of the data in real-world. By using the AI model in a Digital Twin, we get an idea what are the challenges we may face when implementing the robot in the industry and we can run as many tests as we want without hampering other processes.
+This process shows a cheaper, faster, and more effective way of testing end-to-end tasks with a 6 DOF robot. With large synthetic datasets, we cut time and manpower in collecting data for our AI model however, we need to make sure these data are representative of the data in real world. By using the AI model in a **Digital Twin**, we get an idea what are the challenges we may face when implementing the robot in the industry and we can run as many tests as we want without hampering other processes.
 
 
 
@@ -311,7 +311,9 @@ We will start by coding equation 1 which is first to transform our input image i
 
 **Pseudocode:**
 
+```python
 x_input = [class_token, patch_1, patch_2, ..., patch_N] + [class_token_pos, patch_1_pos, patch_2_pos, ..., patch_N_pos]
+```
 
 #### 3.1.1 Patching
 
@@ -463,6 +465,8 @@ Note that we call the Multi-Head Attention block and MLP block that we already c
 
 For the last equation, we simply require a ```torch.nn.LayerNorm()``` layer and a ```torch.nn.Linear()``` layer to transform the **logit** outputs from the 0th index of the Transformer Encoder into the desired number of **target** classes.
 
+
+**Pseudocode:**
 
 ```python
 y = Linear_layer(LN_layer(x_output_MLP_block[0]))
@@ -642,7 +646,7 @@ Finally, we put all the building blocks together and created the full end-to-end
 ----------
 ## Conclusion
 
-The project demonstrates how to build your custom Vision Transformer model - although the one we created from scratch had poor accuracy, we used a pre-trained one - within Unity to classify objects and simulate the palletization process as done in the industry. By building a Digital Twin of the robot and the workspace, we save time and effort in testing the best scenario on how to optimize the palletizing process. We can perform path planning for the 6 DOF robot to avoid any collisions and calculate the least time required to do certain tasks. Note that we generated a synthetic dataset with Unity itself that gave us more control over the quality and quantity of images we wanted but also saved us manual effort to take the pictures ourselves which could take days to do so. From collection of data to training of a Vision Transformer and implementation in Unity, we built a full Digital Twin for a 6 DoF robotic arm doing palletization. 
+The project demonstrates how to build your ```custom Vision Transformer model``` - although the one we created from scratch had poor accuracy, we used a ```pre-trained``` one - within Unity to classify objects and simulate the **palletization** process as done in the industry. By building a **Digital Twin** of the robot and the workspace, we save time and effort in testing the best scenario on how to optimize the palletizing process. We can perform **path planning** for the 6 DOF robot to avoid any **collisions** and calculate the least time required to do certain tasks. Note that we generated a **synthetic dataset** with Unity itself that gave us more control over the **quality** and **quantity** of images we wanted but also saved us manual effort to take the pictures ourselves which could take days to do so. From collection of data to training of a Vision Transformer and implementation in Unity, we built a full Digital Twin for a 6 DoF robotic arm doing palletization. 
 
 
 
