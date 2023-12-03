@@ -274,19 +274,23 @@ Equation 3 involves coding the last two blocks in the Transformer Encoder: **Lay
 The combination of linear transformations, non-linear activations, and dropout makes the model more flexible and expressive, helping it understand and handle different visual tasks effectively.
 
 <p align="center">
-  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/e9346ee1-4e4e-4705-be62-d377cf85c644" width="25%"/>
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/e9346ee1-4e4e-4705-be62-d377cf85c644" width="20%"/>
 </p>
 
 The hidden size of the MLP is ```3072``` and the input and output size of the MLP is equal to the embedding dimension ```768```. Above is a visual representation of the MLP and LN.
 
-
-
-
-
-
-
-
 ### 2.6 Equation 4
+
+This expression denotes that for the last layer ```L```, the output ```y_L``` is obtained by applying a **LayerNorm (LN)** to the ```0``` index token of ```z_L```.
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/b6428b9e-c158-46ce-9422-1fafbadc4427" width="55%"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/e101f5c5-bb44-4db5-b002-1bd0f7a40511" width="10%"/>
+</p>
+
 
 
 
@@ -456,6 +460,13 @@ Note that we call the Multi-Head Attention block and MLP block that we already c
 ```
 
 ### 3.5 Equation 4
+
+For the last equation, we simply require a ```torch.nn.LayerNorm()``` layer and a ```torch.nn.Linear()``` layer to transform the **logit** outputs from the 0th index of the Transformer Encoder into the desired number of **target** classes.
+
+
+```python
+y = Linear_layer(LN_layer(x_output_MLP_block[0]))
+```
 
 ```python
 classification_head = nn.Sequential(nn.LayerNorm(normalized_shape=embed_dim),
