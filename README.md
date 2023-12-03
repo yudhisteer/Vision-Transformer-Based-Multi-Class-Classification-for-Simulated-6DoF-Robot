@@ -4,7 +4,7 @@
 
 We want to deploy a 6-DOF robotic arm in an industry that will be able to pick up objects with a certain grip and place the object in their designated box. Deploying a 6-DOF robotic arm in an industry requires a lot of **planning** and faces multiple challenges. For example, we may want to plan the **trajectory** of the movement of the robot beforehand to ensure we have the **space** required for the machine but also to ensure the **safety** of the **machine** and the **people** around it. 
 
-For our problem statement, we may want the robot to recognize the object first. To do that, we will need to collect **images** of the objects. Firstly, if we want the robot to recognize objects, we need to gather images. How many images do we need, and who's responsible for taking them? Can we rely on internet images, or do we risk them not truly representing our objects?
+For our problem statement, we may want the robot to recognize the object first. To do that, we will need to collect **images** of the objects. But how many images do we need, and who's responsible for taking them? Can we rely on internet images, or do we risk them not truly representing our objects?
 
 Furthermore, optimizing the robot's efficiency might involve **redesigning** the **workspace**. Is it necessary to physically place the robot in a real setting to test for maximum efficiency? And if so, do we have to halt other machines' work to make room for the robot? 
 
