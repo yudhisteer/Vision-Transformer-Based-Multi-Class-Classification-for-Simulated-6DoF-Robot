@@ -605,14 +605,24 @@ For the vase we cannot use the same grip with suction cups as above, instead, we
 Note that we do not have a third grip for the plate object as plate objects will continue on the main conveyor belt where they will fall in a wooden container.
 
 ### 4.4 Object Classification
-As mentioned above, we place another camera just above the markers and take a picture of the object. The picture then goes to our ViT model which classifies the object's class. We then displace the picture of the object and the classification label on a panel in Unity as shown below:
+As mentioned above, we place another camera just above the markers and take a picture of the object. The picture then goes to our ```ViT``` model which **classifies** the object's **class**. We then displace the picture of the object and the classification label on a panel in Unity as shown below:
 
-
-
+<div style="text-align: center;">
+  <video src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/cdd793a1-6ab7-46c4-9538-7486227d3f2b" controls="controls" style="max-width: 730px;">
+  </video>
+</div>
 
 
 ### 4.5 End-to-End Simulation
 Finally, we put all the building blocks together and created the full end-to-end simulation for the palletization of boxes, plates, and, vases.
+
+
+
+<div style="text-align: center;">
+  <video src="https://github.com/yudhisteer/Vision-Transformer-Based-Multi-Class-Classification-for-Simulated-6DoF-Robot/assets/59663734/efd4281a-1cd8-4220-b5b9-bc7e7b89ea23" controls="controls" style="max-width: 730px;">
+  </video>
+</div>
+
 
 
 ----------
