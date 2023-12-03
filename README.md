@@ -656,16 +656,28 @@ The project demonstrates how to build your ```custom Vision Transformer model```
 
 
 ## References
-1. https://arxiv.org/abs/2010.11929
-2. https://www.youtube.com/watch?v=TrdevFK_am4&ab_channel=YannicKilcher
-3. https://www.youtube.com/watch?v=j3VNqtJUoz0&ab_channel=DeepFindr
-4. https://www.youtube.com/watch?v=DVoHvmww2lQ&list=PLpZBeKTZRGPMddKHcsJAOIghV8MwzwQV6&index=1&ab_channel=AICoffeeBreakwithLetitia
-5. https://www.youtube.com/watch?v=j6kuz_NqkG0&ab_channel=AleksaGordi%C4%87-TheAIEpiphany
-6. https://www.youtube.com/watch?v=DVoHvmww2lQ&list=PLpZBeKTZRGPMddKHcsJAOIghV8MwzwQV6&ab_channel=AICoffeeBreakwithLetitia
-7. https://github.com/mashaan14/VisionTransformer-MNIST/blob/main/VisionTransformer_MNIST.ipynb
-8. https://towardsdatascience.com/a-comprehensive-guide-to-swin-transformer-64965f89d14c
-9. https://www.youtube.com/watch?v=YAgjfMR9R_M&ab_channel=MichiganOnline
-10. https://jalammar.github.io/illustrated-transformer/
-11. https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
-12. https://docs.unity3d.com/Packages/com.unity.barracuda@3.0/manual/GettingStarted.html
-13. https://github.com/cj-mills/unity-barracuda-inference-image-classification
+[1] arXiv. (n.d.). Swin Transformer: Hierarchical Vision Transformer using Shifted Windows. [Research Paper]. [https://arxiv.org/abs/2010.11929](https://arxiv.org/abs/2010.11929)
+
+[2] YouTube. (n.d.). Understanding the Swin Transformer - A Lecture. [Video]. [https://www.youtube.com/watch?v=TrdevFK_am4&ab_channel=YannicKilcher](https://www.youtube.com/watch?v=TrdevFK_am4&ab_channel=YannicKilcher)
+
+[3] YouTube. (n.d.). The Swin Transformer - Deep Dive into Vision Transformers. [Video]. [https://www.youtube.com/watch?v=j3VNqtJUoz0&ab_channel=DeepFindr](https://www.youtube.com/watch?v=j3VNqtJUoz0&ab_channel=DeepFindr)
+
+[4] YouTube. (n.d.). Swin Transformer Explained - AI Coffee Break with Letitia. [Video Playlist]. [https://www.youtube.com/watch?v=DVoHvmww2lQ&list=PLpZBeKTZRGPMddKHcsJAOIghV8MwzwQV6&index=1&ab_channel=AICoffeeBreakwithLetitia](https://www.youtube.com/watch?v=DVoHvmww2lQ&list=PLpZBeKTZRGPMddKHcsJAOIghV8MwzwQV6&index=1&ab_channel=AICoffeeBreakwithLetitia)
+
+[5] YouTube. (n.d.). Swin Transformer: A Game Changer in Computer Vision. [Video]. [https://www.youtube.com/watch?v=j6kuz_NqkG0&ab_channel=AleksaGordi%C4%87-TheAIEpiphany](https://www.youtube.com/watch?v=j6kuz_NqkG0&ab_channel=AleksaGordi%C4%87-TheAIEpiphany)
+
+[6] GitHub. (n.d.). Vision Transformer on MNIST. [Notebook]. [https://github.com/mashaan14/VisionTransformer-MNIST/blob/main/VisionTransformer_MNIST.ipynb](https://github.com/mashaan14/VisionTransformer-MNIST/blob/main/VisionTransformer_MNIST.ipynb)
+
+[7] Towards Data Science. (n.d.). A Comprehensive Guide to Swin Transformer. [Article]. [https://towardsdatascience.com/a-comprehensive-guide-to-swin-transformer-64965f89d14c](https://towardsdatascience.com/a-comprehensive-guide-to-swin-transformer-64965f89d14c)
+
+[8] YouTube. (n.d.). Deep Learning with PyTorch: Introduction to Transformers. [Video]. [https://www.youtube.com/watch?v=YAgjfMR9R_M&ab_channel=MichiganOnline](https://www.youtube.com/watch?v=YAgjfMR9R_M&ab_channel=MichiganOnline)
+
+[9] Learn PyTorch. (n.d.). Replicating a PyTorch Paper - Swin Transformer. [Tutorial]. [https://www.learnpytorch.io/08_pytorch_paper_replicating/#321-exploring-figure-1](https://www.learnpytorch.io/08_pytorch_paper_replicating/#321-exploring-figure-1)
+
+[10] Jay Alammar. (n.d.). The Illustrated Transformer. [Article]. [https://jalammar.github.io/illustrated-transformer/](https://jalammar.github.io/illustrated-transformer/)
+
+[11] Jay Alammar. (n.d.). Visualizing Neural Machine Translation Mechanics of Seq2Seq Models with Attention. [Article]. [https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)
+
+[12] Unity. (n.d.). Barracuda: Getting Started. [Documentation]. [https://docs.unity3d.com/Packages/com.unity.barracuda@3.0/manual/GettingStarted.html](https://docs.unity3d.com/Packages/com.unity.barracuda@3.0/manual/GettingStarted.html)
+
+[13] GitHub. (n.d.). Unity Barracuda Inference Image Classification. [Repository]. [https://github.com/cj-mills/unity-barracuda-inference-image-classification](https://github.com/cj-mills/unity-barracuda-inference-image-classification)
